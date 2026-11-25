@@ -1,0 +1,2074 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home from your doc</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#C20500}a:hover{color:#8E0400}
+#iterace-cal-scroll{scrollbar-width:none;-ms-overflow-style:none}
+#iterace-cal-scroll::-webkit-scrollbar{display:none;width:0;height:0}
+#radio-log-list{scrollbar-width:none}
+#radio-log-list::-webkit-scrollbar{display:none;width:0;height:0}
+[data-chip] [data-x]{display:none}
+[data-chip]:hover [data-x],[data-chip]:focus-within [data-x]{display:inline-flex}
+[data-dday] [data-dday-edit]{opacity:0;transition:opacity 120ms ease}
+[data-dday]:hover [data-dday-edit],[data-dday]:focus-within [data-dday-edit]{opacity:1}
+[data-dday]:hover{background:rgba(17,17,17,0.05)}
+[data-garage="1"]{--g-ink:#F2F2F4;--g-ink2:#E4E4E8;--g-ink3:#B9B9C0;--g-ink4:#ADADB4;--g-mute:#8F8F97;--g-red:#FF5B50;--g-red2:#FF7A70;--g-on:#111111;--g-solid:#F2F2F4;--g-white:#26262B;--g-glass:30,30,34;--g-glass2:30,30,34;--g-dk:255,255,255;--g-line:#E6E6EA;--g-glassline:62,62,68;--g-pop:46,46,53;--g-page:repeating-linear-gradient(45deg,rgba(255,255,255,0.025) 0 3px,transparent 3px 7px),repeating-linear-gradient(-45deg,rgba(0,0,0,0.28) 0 3px,transparent 3px 7px),linear-gradient(160deg,#1E1E22 0%,#0F0F11 100%);color-scheme:dark}
+[data-garage="1"] :is(button,span,a,label) svg[stroke="#111111"],[data-garage="1"] :is(button,span,a,label) svg [stroke="#111111"]{stroke:#F2F2F4}
+[data-garage="1"] :is(button,span,a,label) svg[fill="#111111"],[data-garage="1"] :is(button,span,a,label) svg [fill="#111111"]{fill:#F2F2F4}
+[data-garage="1"] svg[stroke="#3F3F3F"],[data-garage="1"] svg [stroke="#3F3F3F"]{stroke:#B9B9C0}
+[data-garage="1"] input::placeholder,[data-garage="1"] textarea::placeholder{color:#7C7C84}
+</style>
+</helmet>
+<div data-garage="{{ garageAttr }}" style="width: 1440px; height: 900px; position: relative; overflow: hidden; background: var(--g-page, #E10600); color: var(--g-ink, #111111); font-family: 'IBM Plex Sans', system-ui, sans-serif">
+
+<div aria-hidden="true" style="position: absolute; inset: 0; pointer-events: none">
+<svg width="1440" height="900" viewBox="0 0 1440 900" aria-hidden="true">
+<text x="760" y="880" font-family="Orbitron, sans-serif" font-weight="900" font-size="620" fill="#FFFFFF" opacity="0.12">04</text>
+<path d="M160 700 C110 560 200 440 350 440 L720 440 C820 440 860 370 840 290 C820 210 880 140 980 150 L1220 180 C1320 194 1340 300 1280 370 L1160 500 C1100 570 1130 650 1210 690 C1290 730 1270 830 1170 830 L300 830 C230 830 185 780 160 700 Z" fill="none" stroke="#111111" stroke-width="56" stroke-linejoin="round"></path>
+<path d="M160 700 C110 560 200 440 350 440 L720 440 C820 440 860 370 840 290 C820 210 880 140 980 150 L1220 180 C1320 194 1340 300 1280 370 L1160 500 C1100 570 1130 650 1210 690 C1290 730 1270 830 1170 830 L300 830 C230 830 185 780 160 700 Z" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="26 22"></path>
+<rect x="-80" y="250" width="1000" height="80" fill="#111111" transform="rotate(-8 400 290)"></rect>
+</svg>
+</div>
+
+<header style="position: absolute; top: 0; left: 0; right: 0; height: 72px; box-sizing: border-box; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; color: #FFFFFF">
+<div style="display: flex; align-items: center; gap: 28px">
+<span style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 26px; letter-spacing: 0.08em">ITERACE</span>
+<nav aria-label="Pages" style="display: flex; padding: 4px; gap: 4px; border-radius: 999px; background: rgba(255,255,255,0.22); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px)">
+<span aria-current="page" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; background: var(--g-white, #FFFFFF); color: var(--g-red, #C20500); font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.12em">HOME</span>
+<a href="RaceWeek.dc.html" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; color: #FFFFFF; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.12em">RACE WEEK</a>
+<a href="Goals.dc.html" style="min-height: 40px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; color: #FFFFFF; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.12em">GOALS</a>
+</nav>
+</div>
+<sc-if value="{{ notSessLive }}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,0.22); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.12em"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--g-white, #FFFFFF)"></span>RACE 04 · ON TRACK</span>
+<button type="button" onClick="{{ openOnboard }}" aria-label="Onboard: full-screen view of the running lap" style="min-height: 44px; display: inline-flex; align-items: center; gap: 10px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF); font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer"><svg width="18" height="16" viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h14v10H2z"></path><path d="M16 9l6-3v10l-6-3"></path></svg>ONBOARD</button>
+
+</div>
+</sc-if>
+</header>
+
+<section aria-label="Today and countdown" style="position: absolute; z-index: 10; top: 76px; left: 0; right: 0; height: 136px; box-sizing: border-box; padding: 0 40px; background: rgba(var(--g-glass, 255,255,255), 0.74); backdrop-filter: blur(26px) saturate(140%); -webkit-backdrop-filter: blur(26px) saturate(140%); border-top: 1px solid rgba(var(--g-glassline, 255,255,255), 0.95); border-bottom: 1px solid rgba(var(--g-glassline, 255,255,255), 0.95); box-shadow: 0 20px 50px rgba(17,17,17,0.2); display: flex; align-items: center; gap: 40px">
+<div style="display: flex; align-items: center; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.14em">TODAY</span>
+<span style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 76px; line-height: 1; letter-spacing: 0.02em">WED 25 NOV</span>
+</div>
+<div aria-hidden="true" style="width: 1px; height: 72px; background: rgba(var(--g-dk, 17,17,17), 0.2)"></div>
+<div data-dday="1" style="position: relative; display: flex; flex-direction: column; gap: 6px; padding: 10px 14px; margin: -10px -14px; border-radius: 4px">
+<div style="display: flex; align-items: center; gap: 12px">
+<span role="timer" aria-label="{{ ddayAria }}" style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 32px; line-height: 1; font-variant-numeric: tabular-nums; color: var(--g-red, #C20500)">{{ countdown }}</span>
+<button type="button" data-dday-edit="1" onClick="{{ toggleDday }}" aria-label="Change the countdown" aria-expanded="{{ ddayExpanded }}" style="height: 30px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 0; border-radius: 4px; background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"></path></svg>EDIT</button>
+</div>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: var(--g-ink3, #3F3F3F)">{{ ddayLabel }}</span>
+<sc-if value="{{ ddayOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-label="Countdowns" style="position: absolute; z-index: 20; top: calc(100% + 12px); left: 0; width: 420px; box-sizing: border-box; padding: 18px; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.98); box-shadow: 0 24px 50px rgba(17,17,17,0.3); display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: var(--g-red, #C20500)">COUNT DOWN TO</span>
+<div role="radiogroup" aria-label="Countdown" style="display: flex; flex-direction: column; gap: 6px">
+<sc-for list="{{ ddays }}" as="dd" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 6px">
+<button type="button" role="radio" aria-checked="{{ dd.checked }}" onClick="{{ dd.pick }}" style="flex: 1 1 auto; min-height: 48px; display: flex; align-items: center; gap: 12px; padding: 0 12px; border: 0; border-radius: 4px; text-align: left; cursor: pointer; color: var(--g-ink, #111111); {{ dd.style }}">
+<span aria-hidden="true" style="flex: none; width: 16px; height: 16px; box-sizing: border-box; border-radius: 50%; border: 2px solid var(--g-line, #111111); {{ dd.dot }}"></span>
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 15px; font-weight: 700">{{ dd.name }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--g-ink3, #3F3F3F)">{{ dd.when }}</span>
+</span>
+</button>
+<sc-if value="{{ dd.removable }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ dd.remove }}" aria-label="{{ dd.removeLabel }}" style="flex: none; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 4px; background: rgba(var(--g-dk, 17,17,17), 0.08); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(var(--g-dk, 17,17,17), 0.12)">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em">ADD A D-DAY</span>
+<input type="text" value="{{ ddName }}" onChange="{{ setDdName }}" placeholder="e.g. JLPT exam, Vacation" aria-label="D-day name" style="min-height: 42px; padding: 0 12px; border: 2px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)">
+<div style="display: flex; align-items: center; gap: 8px">
+<input type="date" value="{{ ddDate }}" onChange="{{ setDdDate }}" aria-label="Date" style="flex: 1 1 auto; min-height: 42px; padding: 0 10px; border: 2px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)">
+<input type="time" value="{{ ddTime }}" onChange="{{ setDdTime }}" aria-label="Time, optional" style="width: 110px; min-height: 42px; padding: 0 8px; border: 2px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)">
+<button type="button" onClick="{{ addDday }}" style="flex: none; min-height: 42px; padding: 0 16px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">ADD</button>
+</div>
+<sc-if value="{{ ddHasError }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 13px; color: var(--g-red, #C20500)">{{ ddError }}</span>
+</sc-if>
+</div>
+<button type="button" onClick="{{ toggleDday }}" style="align-self: flex-end; min-height: 38px; padding: 0 16px; border: 2px solid var(--g-line, #111111); border-radius: 999px; background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">DONE</button>
+</div>
+</sc-if>
+</div>
+</div>
+<div style="margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 6px">
+<span style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 30px; line-height: 1">RACE 04</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; color: var(--g-ink3, #3F3F3F)">{{ raceProgress }}</span>
+<button type="button" onClick="{{ openPlan }}" style="padding: 0; border: 0; background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; color: var(--g-red, #C20500); text-decoration: underline; text-underline-offset: 4px; cursor: pointer">RACE PLAN</button>
+</div>
+</section>
+
+<section aria-labelledby="cal-h" style="position: absolute; top: 232px; left: 32px; width: {{ calW }}px; height: 644px; box-sizing: border-box; padding: 18px 22px; background: rgba(var(--g-glass, 255,255,255), 0.74); backdrop-filter: blur(26px) saturate(140%); -webkit-backdrop-filter: blur(26px) saturate(140%); border: 1px solid rgba(var(--g-glassline, 255,255,255), 0.95); border-radius: 4px; box-shadow: 0 20px 50px rgba(17,17,17,0.22); display: flex; flex-direction: column; gap: 10px">
+<h2 id="cal-h" style="margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.16em">{{ calMonth }}</h2>
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-ink3, #3F3F3F); padding-bottom: 6px; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.12)">
+<span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+</div>
+<div id="iterace-cal-scroll" ref="{{ calRef }}" onScroll="{{ onCalScroll }}" style="flex: 1 1 auto; min-height: 0; overflow-y: auto">
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr))">
+<sc-for list="{{ calDays }}" as="day" hint-placeholder-count="42">
+<button type="button" onClick="{{ day.pick }}" aria-label="{{ day.label }}" style="height: 56px; padding: 0; border: 0; border-radius: 0; background: transparent; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; cursor: pointer; color: var(--g-ink, #111111); font-family: 'IBM Plex Sans', system-ui, sans-serif; {{ day.cellStyle }}">
+<span style="height: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; line-height: 10px; letter-spacing: 0.08em; color: var(--g-red, #C20500)">{{ day.monthTag }}</span>
+<span style="width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 500; {{ day.numStyle }}">{{ day.num }}</span>
+<span style="height: 10px; display: flex; gap: 4px; align-items: center; justify-content: center">
+<sc-if value="{{ day.work }}" hint-placeholder-val="{{ false }}"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--g-solid, #111111)"></span></sc-if>
+<sc-if value="{{ day.done }}" hint-placeholder-val="{{ false }}"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="4" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg></sc-if>
+<sc-if value="{{ day.mech }}" hint-placeholder-val="{{ false }}"><span style="width: 10px; height: 10px; box-sizing: border-box; border: 1px solid var(--g-line, #111111); background: repeating-conic-gradient(var(--g-solid, #111111) 0 25%, #FFFFFF 0 50%) 0 0 / 5px 5px"></span></sc-if>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px 18px; padding: 8px 0 0 22px; border-top: 1px solid rgba(var(--g-dk, 17,17,17), 0.12); font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; color: var(--g-ink3, #3F3F3F)">
+<span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--g-solid, #111111)"></span>TIME RECORDED</span>
+<span style="display: inline-flex; align-items: center; gap: 6px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="4" aria-hidden="true"><path d="M4 12l5 5L20 6"></path></svg>ALL LAPS DONE</span>
+<span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; box-sizing: border-box; border: 1px solid var(--g-line, #111111); background: repeating-conic-gradient(var(--g-solid, #111111) 0 25%, #FFFFFF 0 50%) 0 0 / 5px 5px"></span>MECHANICS</span>
+<span style="display: inline-flex; align-items: center; gap: 6px"><span style="width: 12px; height: 12px; border-radius: 4px; background: rgba(var(--g-dk, 17,17,17), 0.12)"></span>THIS RACE</span>
+</div>
+</section>
+
+<div role="separator" aria-orientation="vertical" aria-label="Drag to resize the calendar and the laps" aria-valuenow="{{ calW }}" tabindex="0" onPointerDown="{{ onSplitDown }}" onKeyDown="{{ onSplitKey }}" title="Drag to resize" style="position: absolute; z-index: 5; top: 232px; left: {{ splitX }}px; width: 12px; height: 644px; cursor: col-resize; display: flex; align-items: center; justify-content: center; touch-action: none"><span aria-hidden="true" style="width: 4px; height: 56px; border-radius: 999px; background: rgba(var(--g-glass, 255,255,255), 0.75); box-shadow: 0 1px 4px rgba(17,17,17,0.25)"></span></div>
+<section aria-labelledby="laps-h" style="position: absolute; top: 232px; left: {{ lapsLeft }}px; width: {{ lapsW }}px; height: 644px; box-sizing: border-box; background: rgba(var(--g-glass, 255,255,255), 0.74); backdrop-filter: blur(26px) saturate(140%); -webkit-backdrop-filter: blur(26px) saturate(140%); border: 1px solid rgba(var(--g-glassline, 255,255,255), 0.95); border-radius: 4px; box-shadow: 0 20px 50px rgba(17,17,17,0.22); display: flex; flex-direction: column; overflow: hidden">
+<div style="padding: 14px 20px 12px 26px; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.12); display: flex; align-items: center; gap: 16px">
+<h2 id="laps-h" style="margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0.16em">{{ dayTitle }}</h2>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; color: var(--g-ink3, #3F3F3F)">{{ daySummary }}</span>
+<sc-if value="{{ dayHasDelta }}" hint-placeholder-val="{{ false }}">
+<span style="padding: 3px 9px; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; {{ dayDeltaStyle }}">{{ dayDeltaText }}</span>
+</sc-if>
+<div role="group" aria-label="View" style="margin-left: auto; display: flex; padding: 4px; gap: 4px; border-radius: 999px; background: rgba(var(--g-dk, 17,17,17), 0.08)">
+<button type="button" onClick="{{ showListView }}" aria-pressed="{{ listPressed }}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer; {{ listBtnStyle }}">LIST</button>
+<button type="button" onClick="{{ showHoursView }}" aria-pressed="{{ hoursPressed }}" style="min-height: 40px; padding: 0 16px; border: 0; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer; {{ hoursBtnStyle }}">HOURS</button>
+</div>
+</div>
+
+<sc-if value="{{ noLaps }}" hint-placeholder-val="{{ false }}">
+<div style="flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; padding: 40px 26px; box-sizing: border-box">
+<p style="margin: 0; font-size: 22px; font-weight: 700">{{ emptyTitle }}</p>
+<p style="margin: 0; max-width: 420px; font-size: 16px; line-height: 1.5; color: var(--g-ink3, #3F3F3F)">{{ emptyBody }}</p>
+</div>
+</sc-if>
+
+<sc-if value="{{ showList }}" hint-placeholder-val="{{ true }}">
+<div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; padding: 0 26px">
+<ul style="list-style: none; margin: 0; padding: 0">
+<sc-for list="{{ listRows }}" as="b" hint-placeholder-count="4">
+<li style="border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.1); {{ b.liStyle }}">
+<sc-if value="{{ b.isLap }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ b.toggle }}" aria-expanded="{{ b.expandedAttr }}" style="width: 100%; min-height: 72px; box-sizing: border-box; padding: 12px 0; border: 0; background: transparent; display: flex; align-items: center; gap: 16px; text-align: left; cursor: pointer; color: var(--g-ink, #111111); font-family: 'IBM Plex Sans', system-ui, sans-serif">
+<span aria-hidden="true" style="flex: none; width: 26px; height: 26px; box-sizing: border-box; border-radius: 50%; border: 2px solid var(--g-line, #111111); {{ b.circleStyle }}"></span>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--g-ink3, #3F3F3F)">{{ b.sub }}</span>
+<span style="font-size: 20px; font-weight: 600; line-height: 1.25">{{ b.title }}</span>
+</span>
+<sc-if value="{{ b.isActive }}" hint-placeholder-val="{{ false }}">
+<span style="flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
+<span role="timer" aria-label="Time left in this lap" style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums">{{ b.timerText }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-ink3, #3F3F3F)">{{ b.leftOf }}</span>
+</span>
+</sc-if>
+<sc-if value="{{ b.notActive }}" hint-placeholder-val="{{ true }}">
+<span style="flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 4px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums">{{ b.timeLabel }}</span>
+<sc-if value="{{ b.hasDelta }}" hint-placeholder-val="{{ false }}">
+<span style="padding: 2px 8px; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; {{ b.deltaStyle }}">{{ b.deltaText }}</span>
+</sc-if>
+</span>
+</sc-if>
+<span style="flex: none; padding: 6px 11px; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; {{ b.chipStyle }}">{{ b.stateLabel }}</span>
+</button>
+<sc-if value="{{ b.isActive }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 8px; justify-content: flex-end; padding: 0 0 14px 42px">
+<button type="button" role="checkbox" aria-checked="{{ b.autoChecked }}" onClick="{{ b.toggleAuto }}" title="Ticked: the lap stops by itself once its planned time has been timed. Unticked: it keeps recording until you stop it." style="margin-right: auto; min-height: 46px; display: inline-flex; align-items: center; gap: 8px; padding: 0 6px; border: 0; background: transparent; color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer"><span aria-hidden="true" style="width: 20px; height: 20px; box-sizing: border-box; border: 2px solid var(--g-line, #111111); border-radius: 3px; display: flex; align-items: center; justify-content: center; {{ b.autoBox }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>AUTO-END</button>
+<button type="button" onClick="{{ b.toggleRun }}" style="min-height: 46px; padding: 0 22px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer">{{ b.runLabel }}</button>
+<button type="button" onClick="{{ b.moveLater }}" style="min-height: 46px; padding: 0 18px; border: 2px solid var(--g-line, #111111); border-radius: 999px; background: transparent; color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">MOVE TO LATER</button>
+</div>
+</sc-if>
+<sc-if value="{{ b.open }}" hint-placeholder-val="{{ false }}">
+<div style="padding: 0 0 18px 42px; display: flex; flex-direction: column; gap: 12px">
+<sc-if value="{{ b.showStart }}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button type="button" onClick="{{ b.start }}" style="min-height: 46px; padding: 0 24px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer">START LAP</button>
+<button type="button" onClick="{{ b.logTime }}" style="min-height: 46px; padding: 0 18px; border: 2px solid var(--g-line, #111111); border-radius: 999px; background: transparent; color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">LOG TIME</button>
+<button type="button" onClick="{{ b.moveLater }}" style="min-height: 46px; padding: 0 18px; border: 2px solid var(--g-line, #111111); border-radius: 999px; background: transparent; color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">MOVE TO LATER</button>
+</div>
+</sc-if>
+<p style="margin: 0; font-size: 16px; line-height: 1.5; color: var(--g-ink2, #2B2B2B)">{{ b.desc }}</p>
+<p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--g-ink3, #3F3F3F)">{{ b.meta }}</p>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em">TIME RECORDED</span>
+<sc-for list="{{ b.sessions }}" as="sn" hint-placeholder-count="1">
+<div data-chip="1" style="display: flex; align-items: center; gap: 10px; min-height: 28px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px">{{ sn.text }}</span>
+<sc-if value="{{ sn.editable }}" hint-placeholder-val="{{ false }}">
+<button type="button" data-x="1" onClick="{{ sn.edit }}" aria-label="{{ sn.editLabel }}" style="height: 26px; align-items: center; gap: 6px; padding: 0 10px; border: 0; border-radius: 999px; background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"></path></svg>EDIT</button>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{ b.showPast }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; font-size: 15px; color: var(--g-ink3, #3F3F3F)">Past days are read-only.</p>
+</sc-if>
+<sc-if value="{{ b.showFuture }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; font-size: 15px; color: var(--g-ink3, #3F3F3F)">{{ b.futureNote }}</p>
+</sc-if>
+</div>
+</sc-if>
+</sc-if>
+<sc-if value="{{ b.isEvent }}" hint-placeholder-val="{{ false }}">
+<div style="min-height: 72px; box-sizing: border-box; padding: 12px 0; display: flex; align-items: center; gap: 16px">
+<span aria-hidden="true" style="flex: none; width: 26px; height: 26px; box-sizing: border-box; border-radius: 4px; border: 2px solid var(--g-line, #111111); display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.5" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="1"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg></span>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--g-ink3, #3F3F3F)">{{ b.sub }}</span>
+<span style="font-size: 20px; font-weight: 600; line-height: 1.25">{{ b.title }}</span>
+</span>
+<span style="flex: none; padding: 6px 11px; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; box-shadow: inset 0 0 0 2px var(--g-line, #111111); color: var(--g-ink, #111111)">CALENDAR EVENT</span>
+</div>
+</sc-if>
+</li>
+</sc-for>
+</ul>
+</div>
+</sc-if>
+
+<sc-if value="{{ showHours }}" hint-placeholder-val="{{ false }}">
+<div id="iterace-hours-scroll" ref="{{ hoursRef }}" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden">
+<div style="position: relative; height: 856px; margin: 8px 0">
+<sc-for list="{{ hourMarks }}" as="h" hint-placeholder-count="16">
+<div style="position: absolute; left: 0; right: 0; top: {{ h.top }}px; height: 0; border-top: 1px solid rgba(var(--g-dk, 17,17,17), 0.1)">
+<span style="position: absolute; left: 22px; top: -8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; color: var(--g-ink3, #3F3F3F)">{{ h.label }}</span>
+</div>
+</sc-for>
+<sc-for list="{{ hourBlocks }}" as="hb" hint-placeholder-count="4">
+<div data-chip="1" style="position: absolute; left: 86px; right: 16px; top: {{ hb.top }}px; height: {{ hb.height }}px; box-sizing: border-box; border-radius: 4px; padding: 6px 14px; display: flex; align-items: center; gap: 12px; overflow: hidden; {{ hb.style }}">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; {{ hb.subStyle }}">{{ hb.sub }}</span>
+<span style="font-size: 16px; font-weight: 600; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ hb.title }}</span>
+</div>
+<sc-if value="{{ hb.canAct }}" hint-placeholder-val="{{ false }}">
+<span data-x="1" style="flex: none; align-items: center; gap: 6px">
+<sc-if value="{{ hb.canLog }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ hb.logTime }}" aria-label="{{ hb.logLabel }}" style="height: 30px; padding: 0 12px; border: 1.5px solid var(--g-line, #111111); border-radius: 999px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer">LOG TIME</button>
+</sc-if>
+<button type="button" onClick="{{ hb.moveLater }}" aria-label="{{ hb.moveLabel }}" style="height: 30px; padding: 0 12px; border: 1.5px solid var(--g-line, #111111); border-radius: 999px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer">MOVE TO LATER</button>
+</span>
+</sc-if>
+<sc-if value="{{ hb.hasDelta }}" hint-placeholder-val="{{ false }}">
+<span style="flex: none; padding: 3px 9px; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; {{ hb.deltaStyle }}">{{ hb.deltaText }}</span>
+</sc-if>
+<sc-if value="{{ hb.isActive }}" hint-placeholder-val="{{ false }}">
+<button type="button" role="checkbox" aria-checked="{{ hb.autoChecked }}" onClick="{{ hb.toggleAuto }}" title="Ticked: the lap stops by itself once its planned time has been timed. Unticked: it keeps recording until you stop it." style="flex: none; height: 30px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 0; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.8); color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer"><span aria-hidden="true" style="width: 16px; height: 16px; box-sizing: border-box; border: 2px solid var(--g-line, #111111); border-radius: 3px; display: flex; align-items: center; justify-content: center; {{ hb.autoBox }}"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>AUTO-END</button>
+<span role="timer" aria-label="Time left in this lap" style="flex: none; font-family: Orbitron, sans-serif; font-weight: 900; font-size: 30px; font-variant-numeric: tabular-nums">{{ hb.timerText }}</span>
+</sc-if>
+</div>
+</sc-for>
+<sc-for list="{{ extBlocks }}" as="xb" hint-placeholder-count="2">
+<div style="position: absolute; left: 86px; right: 16px; top: {{ xb.top }}px; height: {{ xb.height }}px; box-sizing: border-box; border-radius: 4px; padding: 6px 8px 6px 14px; display: flex; align-items: center; gap: 12px; overflow: hidden; color: var(--g-ink, #111111); {{ xb.style }}">
+<div style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--g-ink3, #3F3F3F)">{{ xb.sub }}</span>
+<span style="font-size: 16px; font-weight: 600; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{ xb.title }}</span>
+</div>
+<sc-if value="{{ xb.canAdd }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ xb.add }}" aria-label="{{ xb.addLabel }}" style="flex: none; min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF); font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; display: flex; align-items: center; gap: 6px; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>ADD</button>
+<button type="button" onClick="{{ xb.dismiss }}" aria-label="{{ xb.dismissLabel }}" style="flex: none; width: 36px; height: 36px; padding: 0; border: 2px solid var(--g-line, #111111); border-radius: 50%; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111); display: flex; align-items: center; justify-content: center; cursor: pointer; box-sizing: border-box"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</sc-if>
+</div>
+</sc-for>
+<sc-if value="{{ showNowLine }}" hint-placeholder-val="{{ false }}">
+<div aria-hidden="true" style="position: absolute; left: 76px; right: 8px; top: {{ nowTop }}px; height: 0; border-top: 2px solid var(--g-line, #111111)">
+<span style="position: absolute; left: -5px; top: -6px; width: 10px; height: 10px; border-radius: 50%; background: var(--g-solid, #111111)"></span>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+</section>
+
+<sc-if value="{{ logOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; background: rgba(17,17,17,0.35); display: flex; align-items: center; justify-content: center">
+<div role="dialog" aria-modal="true" aria-labelledby="log-h" style="width: 460px; box-sizing: border-box; padding: 24px 26px; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.97); box-shadow: 0 30px 60px rgba(17,17,17,0.35); display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: var(--g-red, #C20500)">{{ logKicker }}</span>
+<h2 id="log-h" style="margin: 0; font-size: 22px; font-weight: 700">{{ logTitle }}</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--g-ink3, #3F3F3F)">{{ logBody }}</p>
+<div style="display: flex; gap: 14px">
+<label style="flex: 1 1 0; display: flex; flex-direction: column; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em">STARTED<input type="time" value="{{ logStart }}" onChange="{{ setLogStart }}" style="min-height: 44px; padding: 0 12px; border: 2px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 16px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)"></label>
+<label style="flex: 1 1 0; display: flex; flex-direction: column; gap: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em">FINISHED<input type="time" value="{{ logEnd }}" onChange="{{ setLogEnd }}" style="min-height: 44px; padding: 0 12px; border: 2px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 16px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)"></label>
+</div>
+<button type="button" role="checkbox" aria-checked="{{ logDoneAria }}" onClick="{{ toggleLogDone }}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; padding: 0; border: 0; background: transparent; color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer"><span aria-hidden="true" style="width: 20px; height: 20px; box-sizing: border-box; border: 1.5px solid var(--g-line, #111111); border-radius: 3px; display: flex; align-items: center; justify-content: center; {{ logDoneBox }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>MARK AS COMPLETE</button>
+<sc-if value="{{ logHasError }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 13px; color: var(--g-red, #C20500)">{{ logError }}</span>
+</sc-if>
+<div style="display: flex; justify-content: flex-end; gap: 10px; padding-top: 4px">
+<sc-if value="{{ logEditing }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ removeLog }}" style="margin-right: auto; min-height: 46px; padding: 0 6px; border: 0; background: transparent; color: var(--g-red, #C20500); font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">REMOVE THIS TIME</button>
+</sc-if>
+<button type="button" onClick="{{ closeLog }}" style="min-height: 46px; padding: 0 20px; border: 2px solid var(--g-line, #111111); border-radius: 999px; background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">CANCEL</button>
+<button type="button" onClick="{{ saveLog }}" style="min-height: 46px; padding: 0 22px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">SAVE TIME</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ moveOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; background: rgba(17,17,17,0.35); display: flex; align-items: center; justify-content: center">
+<div role="dialog" aria-modal="true" aria-labelledby="move-h" style="width: 520px; box-sizing: border-box; padding: 24px 26px; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.97); box-shadow: 0 30px 60px rgba(17,17,17,0.35); display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: var(--g-red, #C20500)">MOVE TO LATER</span>
+<h2 id="move-h" style="margin: 0; font-size: 22px; font-weight: 700">{{ moveTitle }}</h2>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em">DAY</span>
+<div role="group" aria-label="Day" style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{ moveDays }}" as="o" hint-placeholder-count="4">
+<button type="button" onClick="{{ o.pick }}" aria-pressed="{{ o.pressed }}" style="min-height: 38px; padding: 0 14px; border: 0; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; {{ o.style }}">{{ o.label }}</button>
+</sc-for>
+</div>
+</div>
+<label style="display: flex; align-items: center; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em">STARTS<input type="time" step="900" value="{{ moveTime }}" onChange="{{ setMoveTime }}" style="min-height: 44px; padding: 0 12px; border: 2px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 16px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)"></label>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: var(--g-ink3, #3F3F3F)">{{ moveNote }}</p>
+<sc-if value="{{ moveHasError }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 13px; color: var(--g-red, #C20500)">{{ moveError }}</span>
+</sc-if>
+<div style="display: flex; justify-content: flex-end; gap: 10px; padding-top: 4px">
+<button type="button" onClick="{{ closeMove }}" style="min-height: 46px; padding: 0 20px; border: 2px solid var(--g-line, #111111); border-radius: 999px; background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">CANCEL</button>
+<button type="button" onClick="{{ saveMove }}" style="min-height: 46px; padding: 0 22px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">MOVE LAP</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ sv.on }}" hint-placeholder-val="{{ false }}">
+<section aria-label="Mechanics session" style="position: absolute; z-index: 12; top: 84px; left: 32px; right: 32px; bottom: 24px; box-sizing: border-box; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.74); backdrop-filter: blur(26px) saturate(140%); -webkit-backdrop-filter: blur(26px) saturate(140%); border: 1px solid rgba(var(--g-glassline, 255,255,255), 0.95); box-shadow: 0 20px 50px rgba(17,17,17,0.22); overflow: hidden; display: flex; flex-direction: column">
+
+<sc-if value="{{ sv.isDebrief }}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; display: flex; align-items: flex-end; gap: 22px; padding: 22px 28px 16px; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.12)">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; color: var(--g-red, #C20500)">MECHANICS SESSION · DEBRIEF</span>
+<h2 style="margin: 0; font-family: Orbitron, sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.03em">RACE 04 DEBRIEF</h2>
+</div>
+<span style="padding-bottom: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: var(--g-ink3, #3F3F3F)">{{ sv.dates }}</span>
+<div style="margin-left: auto; display: flex; gap: 10px">
+<sc-for list="{{ sv.stats }}" as="st" hint-placeholder-count="3">
+<div style="min-width: 128px; display: flex; flex-direction: column; gap: 3px; padding: 10px 14px; border-radius: 4px; background: rgba(var(--g-dk, 17,17,17), 0.06)">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.14em; color: var(--g-mute, #6B6B6B)">{{ st.label }}</span>
+<span style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 22px; font-variant-numeric: tabular-nums">{{ st.value }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; {{ st.subStyle }}">{{ st.sub }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 28px; padding: 18px 28px 0">
+<div style="min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 6px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">GOALS · DID / PLANNED / TARGET</span>
+<span style="display: inline-flex; align-items: center; gap: 14px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-mute, #6B6B6B)"><span style="display: inline-flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 14px; height: 8px; border-radius: 2px; background: #6B6B6B"></span>DID</span><span style="display: inline-flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 14px; height: 8px; border-radius: 2px; background: rgba(107,107,107,0.4)"></span>PLANNED</span><span style="display: inline-flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 2px; height: 12px; background: var(--g-solid, #111111)"></span>TARGET</span></span>
+</div>
+<sc-for list="{{ sv.goals }}" as="dg" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 14px 0; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.1)">
+<div style="display: flex; align-items: center; gap: 10px">
+<span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: {{ dg.color }}"></span>
+<span style="font-size: 18px; font-weight: 600">{{ dg.name }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; color: var(--g-ink3, #3F3F3F)">{{ dg.numbers }}</span>
+<span style="margin-left: auto; padding: 3px 9px; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; {{ dg.deltaStyle }}">{{ dg.deltaText }}</span>
+</div>
+<div aria-hidden="true" style="position: relative; height: 12px; border-radius: 999px; background: rgba(var(--g-dk, 17,17,17), 0.08)">
+<div style="position: absolute; left: 0; top: 0; bottom: 0; width: {{ dg.planPct }}%; border-radius: 999px; background: {{ dg.color }}; opacity: 0.35"></div>
+<div style="position: absolute; left: 0; top: 0; bottom: 0; width: {{ dg.didPct }}%; border-radius: 999px; background: {{ dg.color }}"></div>
+<div style="position: absolute; top: -4px; bottom: -4px; left: {{ dg.targetPct }}%; width: 2px; margin-left: -1px; background: var(--g-solid, #111111)"></div>
+</div>
+<input type="text" value="{{ dg.note }}" onChange="{{ dg.setNote }}" placeholder="{{ dg.notePh }}" aria-label="{{ dg.noteLabel }}" style="min-height: 34px; padding: 0 10px; border: 1px solid rgba(var(--g-dk, 17,17,17), 0.25); border-radius: 4px; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14px; background: rgba(var(--g-glass, 255,255,255), 0.9); color: var(--g-ink, #111111)">
+</div>
+</sc-for>
+</div>
+<div style="min-height: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">FROM THE RADIO</span>
+<div style="flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{ sv.noRadio }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; font-size: 14px; color: var(--g-ink3, #3F3F3F)">No notes this race. Notes you add in the radio log show up here.</p>
+</sc-if>
+<sc-for list="{{ sv.radio }}" as="rn" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 3px; padding: 8px 12px; border-left: 2px solid #E10600; background: rgba(225,6,0,0.05)">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-mute, #6B6B6B)">{{ rn.when }} · {{ rn.main }}</span>
+<span style="font-size: 14px; line-height: 1.4; font-style: italic">{{ rn.comment }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<label style="flex: none; display: flex; flex-direction: column; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">WHAT GOT IN THE WAY? · OPTIONAL
+<textarea value="{{ sv.why }}" onChange="{{ sv.setWhy }}" placeholder="e.g. Two late nights killed Thursday. Plan lighter evenings before deadlines." style="height: 110px; box-sizing: border-box; padding: 10px 12px; border: 1px solid rgba(var(--g-dk, 17,17,17), 0.25); border-radius: 4px; resize: none; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px; line-height: 1.45; letter-spacing: 0; font-weight: 400; background: rgba(var(--g-glass, 255,255,255), 0.9); color: var(--g-ink, #111111)"></textarea>
+</label>
+</div>
+</div>
+<div style="flex: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 28px; border-top: 1px solid rgba(var(--g-dk, 17,17,17), 0.12)">
+<span style="font-size: 13px; color: var(--g-ink3, #3F3F3F)">Your answer and goal notes go into Race 05’s plan.</span>
+<a href="RaceWeek.dc.html" onClick="{{ sv.toStep2 }}" style="min-height: 46px; display: inline-flex; align-items: center; gap: 10px; padding: 0 22px; border-radius: 999px; background: #E10600; color: #FFFFFF; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.1em">NEXT · UNFINISHED LAPS →</a>
+</div>
+</sc-if>
+
+</section>
+</sc-if>
+
+<sc-if value="{{ planOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; background: rgba(17,17,17,0.4); display: flex; align-items: center; justify-content: center">
+<div role="dialog" aria-modal="true" aria-labelledby="plan-h" style="width: 1060px; height: 780px; box-sizing: border-box; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.98); box-shadow: 0 30px 70px rgba(17,17,17,0.4); display: flex; flex-direction: column; overflow: hidden">
+<div style="position: relative; flex: none; display: flex; align-items: center; gap: 22px; padding: 20px 26px; background: #E10600; color: #FFFFFF; overflow: hidden">
+<h2 id="plan-h" style="margin: 0; font-family: Orbitron, sans-serif; font-weight: 900; font-size: 36px; letter-spacing: 0.03em">RACE 04</h2>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.16em">RACE PLAN · {{ plan.dates }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; opacity: 0.85">{{ plan.setAt }}</span>
+</div>
+<span aria-hidden="true" style="margin-left: auto; width: 120px; height: 40px; background: repeating-conic-gradient(var(--g-solid, #111111) 0 25%, #FFFFFF 0 50%) 0 0 / 20px 20px; opacity: 0.9"></span>
+<button type="button" onClick="{{ closePlan }}" aria-label="Close the race plan" style="width: 36px; height: 36px; padding: 0; border: 1.5px solid #FFFFFF; border-radius: 4px; background: transparent; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 30px; padding: 22px 26px">
+<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<section aria-labelledby="plan-focus-h" style="display: flex; flex-direction: column; gap: 12px">
+<h3 id="plan-focus-h" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">FOCUS FOR THIS RACE</h3>
+<p style="margin: 0; padding: 14px 18px; border-left: 4px solid #E10600; background: rgba(225,6,0,0.06); font-size: 22px; font-weight: 600; line-height: 1.35">{{ plan.focus }}</p>
+</section>
+<section aria-labelledby="plan-stints-h" style="display: flex; flex-direction: column; gap: 10px">
+<h3 id="plan-stints-h" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">STINTS · PLANNED HOURS BY DAY</h3>
+<div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{ plan.stints }}" as="st" hint-placeholder-count="7">
+<div style="display: flex; flex-direction: column; align-items: stretch; gap: 6px; padding: 8px 6px; border-radius: 4px; {{ st.colStyle }}">
+<div style="height: 150px; display: flex; flex-direction: column-reverse; gap: 2px">
+<sc-for list="{{ st.segs }}" as="sg" hint-placeholder-count="2">
+<span title="{{ sg.tip }}" style="display: block; height: {{ sg.h }}px; border-radius: 3px; background: {{ sg.color }}"></span>
+</sc-for>
+</div>
+<span style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; {{ st.labelStyle }}">{{ st.label }}</span>
+<span style="text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; color: var(--g-ink3, #3F3F3F)">{{ st.total }}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 10px 2px 0; border-top: 1.5px solid var(--g-line, #111111)">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em">TOTAL PLANNED</span>
+<span style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 22px; font-variant-numeric: tabular-nums">{{ plan.stintTotal }}</span>
+</div>
+</section>
+</div>
+<div style="display: flex; flex-direction: column; gap: 22px; min-width: 0">
+<section aria-labelledby="plan-targets-h" style="display: flex; flex-direction: column; gap: 10px">
+<h3 id="plan-targets-h" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">TARGETS · PLANNED / WEEKLY TARGET</h3>
+<sc-for list="{{ plan.targets }}" as="pt" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 5px">
+<div style="display: flex; align-items: center; gap: 8px">
+<span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: {{ pt.color }}"></span>
+<span style="flex: 1 1 auto; font-size: 15px">{{ pt.name }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500">{{ pt.label }}</span>
+</div>
+<div style="height: 7px; border-radius: 999px; overflow: hidden; background: rgba(var(--g-dk, 17,17,17), 0.1)"><div style="height: 100%; border-radius: 999px; background: {{ pt.color }}; width: {{ pt.pct }}%"></div></div>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-mute, #6B6B6B)">{{ pt.note }}</span>
+</div>
+</sc-for>
+</section>
+<section aria-labelledby="plan-keys-h" style="display: flex; flex-direction: column; gap: 8px">
+<h3 id="plan-keys-h" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">SUBGOAL FOCUS</h3>
+<sc-for list="{{ plan.subs }}" as="pk" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 4px; background: rgba(var(--g-dk, 17,17,17), 0.04)">
+<span aria-hidden="true" style="flex: none; width: 4px; align-self: stretch; border-radius: 2px; background: {{ pk.color }}"></span>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: var(--g-mute, #6B6B6B)">{{ pk.goal }}</span>
+<span style="font-size: 15px">{{ pk.title }}</span>
+</span>
+<span style="flex: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; color: var(--g-ink3, #3F3F3F)">{{ pk.when }}</span>
+</div>
+</sc-for>
+</section>
+<section aria-labelledby="plan-notes-h" style="display: flex; flex-direction: column; gap: 8px">
+<h3 id="plan-notes-h" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">FROM THE LAST DEBRIEF</h3>
+<sc-for list="{{ plan.notes }}" as="pn" hint-placeholder-count="2">
+<p style="margin: 0; padding: 6px 12px; border-left: 2px solid #E10600; font-size: 14px; line-height: 1.45; color: var(--g-ink2, #2B2B2B)">{{ pn.text }}</p>
+</sc-for>
+</section>
+</div>
+</div>
+<div style="flex: none; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 26px; border-top: 1px solid rgba(var(--g-dk, 17,17,17), 0.12)">
+<span style="font-size: 13px; color: var(--g-ink3, #3F3F3F)">You write this at the end of each Mechanics session. During the race it’s read-only.</span>
+<button type="button" onClick="{{ closePlan }}" style="min-height: 42px; padding: 0 20px; border: 1.5px solid var(--g-line, #111111); border-radius: 999px; background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">CLOSE</button>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ onboardOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="Onboard view" style="position: absolute; inset: 0; z-index: 40; background: #0B0B0B; color: #FFFFFF; overflow: hidden; display: flex; flex-direction: column">
+<svg aria-hidden="true" width="1440" height="900" viewBox="0 0 1440 900" style="position: absolute; inset: 0; pointer-events: none">
+<text x="1460" y="880" text-anchor="end" font-family="Orbitron, sans-serif" font-weight="900" font-size="560" fill="#FFFFFF" opacity="0.04">04</text>
+<path d="M-40 760 L520 900 L-40 900 Z" fill="#E10600" opacity="0.9"></path>
+<path d="M1480 -20 L1100 -20 L1480 260 Z" fill="#E10600" opacity="0.9"></path>
+</svg>
+<div style="position: relative; flex: none; display: flex; align-items: center; gap: 18px; padding: 28px 44px">
+<span style="display: inline-flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.18em; color: #E10600"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E10600"></span>ONBOARD</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500; letter-spacing: 0.14em; color: rgba(255,255,255,0.7)">{{ ob.lapNo }}</span>
+<button type="button" onClick="{{ closeOnboard }}" style="margin-left: auto; min-height: 44px; padding: 0 20px; border: 1.5px solid rgba(255,255,255,0.8); border-radius: 999px; background: transparent; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer">EXIT ONBOARD · ESC</button>
+</div>
+<sc-if value="{{ ob.has }}" hint-placeholder-val="{{ true }}">
+<div style="position: relative; flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px">
+<span style="display: inline-flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.16em; color: rgba(255,255,255,0.8)"><span style="width: 12px; height: 12px; border-radius: 50%; background: {{ ob.goalColor }}; box-shadow: 0 0 0 2px #FFFFFF"></span>{{ ob.goal }}</span>
+<span style="font-size: 34px; font-weight: 600; letter-spacing: 0.01em">{{ ob.title }}</span>
+<span role="timer" aria-label="Time on this lap" style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 220px; line-height: 0.95; font-variant-numeric: tabular-nums; {{ ob.timerStyle }}">{{ ob.timer }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; letter-spacing: 0.16em; color: rgba(255,255,255,0.7)">{{ ob.leftOf }}</span>
+<div aria-hidden="true" style="position: relative; width: 900px; height: 10px; margin-top: 18px; border-radius: 999px; background: rgba(255,255,255,0.14)">
+<div style="height: 100%; border-radius: 999px; background: #E10600; width: {{ ob.pct }}%"></div>
+<span style="position: absolute; top: -4px; left: 33%; width: 2px; height: 18px; background: rgba(255,255,255,0.35)"></span>
+<span style="position: absolute; top: -4px; left: 66%; width: 2px; height: 18px; background: rgba(255,255,255,0.35)"></span>
+<span style="position: absolute; top: 50%; left: {{ ob.pct }}%; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: #E10600; box-shadow: 0 0 0 3px #FFFFFF, 0 0 18px rgba(225,6,0,0.8)"></span>
+</div>
+<div style="display: flex; align-items: center; gap: 14px; margin-top: 24px">
+<button type="button" role="checkbox" aria-checked="{{ ob.autoChecked }}" onClick="{{ ob.toggleAuto }}" style="min-height: 50px; display: inline-flex; align-items: center; gap: 10px; padding: 0 18px; border: 1.5px solid rgba(255,255,255,0.6); border-radius: 999px; background: transparent; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer"><span aria-hidden="true" style="width: 18px; height: 18px; box-sizing: border-box; border: 1.5px solid #FFFFFF; border-radius: 3px; display: flex; align-items: center; justify-content: center; {{ ob.autoBox }}"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"></path></svg></span>AUTO-END</button>
+<button type="button" onClick="{{ ob.toggleRun }}" style="min-height: 58px; min-width: 200px; padding: 0 30px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 17px; font-weight: 600; letter-spacing: 0.14em; cursor: pointer">{{ ob.runLabel }}</button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ ob.none }}" hint-placeholder-val="{{ false }}">
+<div style="position: relative; flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center">
+<sc-if value="{{ ob.showClock }}" hint-placeholder-val="{{ true }}">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.18em; color: rgba(255,255,255,0.6)">NO LAP RUNNING</span>
+<span role="timer" aria-label="Current time" style="font-family: Orbitron, sans-serif; font-weight: 900; font-size: 200px; line-height: 0.95; font-variant-numeric: tabular-nums">{{ clock }}</span>
+<sc-if value="{{ ob.hasNext }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ ob.askNext }}" style="margin-top: 18px; min-height: 56px; padding: 0 28px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer">START NEXT LAP</button>
+</sc-if>
+</sc-if>
+<sc-if value="{{ ob.confirming }}" hint-placeholder-val="{{ false }}">
+<div role="group" aria-labelledby="ob-confirm-h" style="width: 720px; box-sizing: border-box; padding: 30px 34px; border-radius: 4px; background: rgba(255,255,255,0.06); box-shadow: inset 0 0 0 1.5px rgba(255,255,255,0.25); display: flex; flex-direction: column; align-items: flex-start; gap: 12px; text-align: left">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.18em; color: #E10600">READY TO START?</span>
+<span style="display: inline-flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; color: rgba(255,255,255,0.8)"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: {{ ob.nGoalColor }}; box-shadow: 0 0 0 2px #FFFFFF"></span>{{ ob.nGoal }}</span>
+<h2 id="ob-confirm-h" style="margin: 0; font-size: 40px; font-weight: 700; line-height: 1.15">{{ ob.nTitle }}</h2>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; font-weight: 500; letter-spacing: 0.1em; color: rgba(255,255,255,0.8)">{{ ob.nWhen }}</span>
+<p style="margin: 4px 0 0; font-size: 18px; line-height: 1.5; color: rgba(255,255,255,0.85)">{{ ob.nDesc }}</p>
+<div style="display: flex; gap: 12px; margin-top: 14px">
+<button type="button" onClick="{{ ob.startNext }}" style="min-height: 56px; padding: 0 30px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer">START LAP</button>
+<button type="button" onClick="{{ ob.cancelNext }}" style="min-height: 56px; padding: 0 24px; border: 1.5px solid rgba(255,255,255,0.7); border-radius: 999px; background: transparent; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer">NOT YET</button>
+</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+<div style="position: relative; flex: none; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 44px 30px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 600; letter-spacing: 0.14em">{{ ob.next }}</span>
+<span style="max-width: 560px; text-align: right; font-size: 15px; color: rgba(255,255,255,0.75)"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: #E10600">RACE ENGINEER · </span>{{ ob.radio }}</span>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ hasToast }}" hint-placeholder-val="{{ false }}">
+<div role="status" style="position: absolute; z-index: 15; left: 50%; bottom: 22px; transform: translateX(-50%); display: flex; align-items: center; gap: 18px; padding: 10px 12px 10px 20px; border-radius: 999px; background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF); box-shadow: 0 12px 30px rgba(17,17,17,0.35); font-size: 15px; font-weight: 500; white-space: nowrap">
+<span>{{ toastText }}</span>
+<button type="button" onClick="{{ undo }}" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; cursor: pointer">UNDO</button>
+</div>
+</sc-if>
+
+<div style="position: absolute; z-index: 25; left: 8px; bottom: 6px">
+<button type="button" aria-label="Team Radio. Open this race’s log" aria-expanded="{{ radioLogExpanded }}" onMouseEnter="{{ radioIn }}" onMouseLeave="{{ radioOut }}" onFocus="{{ radioIn }}" onBlur="{{ radioOut }}" onClick="{{ toggleRadioLog }}" style="width: 46px; height: 46px; padding: 0; border: 0; background: transparent; cursor: pointer; filter: drop-shadow(0 6px 10px rgba(17,17,17,0.35)); font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; font-size: 34px; line-height: 46px; text-align: center">📻</button>
+</div>
+<sc-if value="{{ radioBubble }}" hint-placeholder-val="{{ false }}">
+<div role="status" style="position: absolute; z-index: 24; left: 60px; bottom: 22px; width: 380px; box-sizing: border-box; padding: 14px 18px; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.96); box-shadow: 0 16px 36px rgba(17,17,17,0.28); display: flex; flex-direction: column; gap: 6px; pointer-events: none">
+<span style="display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em"><span style="width: 10px; height: 10px; border-radius: 50%; background: #E10600"></span>RACE ENGINEER</span>
+<p style="margin: 0; font-size: 17px; line-height: 1.45; font-weight: 500">{{ radioMsg }}</p>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-mute, #6B6B6B)">CLICK FOR THIS RACE’S LOG</span>
+</div>
+</sc-if>
+<sc-if value="{{ radioLogOpen }}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-labelledby="radio-log-h" style="position: absolute; z-index: 26; left: 16px; bottom: 60px; width: 480px; max-height: 640px; box-sizing: border-box; display: flex; flex-direction: column; border-radius: 6px; background: rgba(var(--g-pop, 255,255,255), 0.99); box-shadow: 0 0 0 2px #E10600, 0 0 0 7px rgba(225,6,0,0.22), 0 0 46px 10px rgba(225,6,0,0.38), 0 28px 60px rgba(0,0,0,0.5); overflow: hidden">
+<div style="padding: 16px 18px 12px; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.12); background: linear-gradient(180deg, rgba(225,6,0,0.2) 0%, rgba(225,6,0,0.06) 100%); display: flex; flex-direction: column; gap: 6px">
+<div style="position: relative; display: flex; align-items: center; gap: 10px">
+<span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #E10600"></span>
+<h2 id="radio-log-h" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.14em">{{ raceLogTitle }}</h2>
+<button type="button" aria-label="What is the race log?" aria-describedby="radio-log-help" onMouseEnter="{{ helpIn }}" onMouseLeave="{{ helpOut }}" onFocus="{{ helpIn }}" onBlur="{{ helpOut }}" style="flex: none; width: 20px; height: 20px; padding: 0; border: 1.5px solid var(--g-mute, #6B6B6B); border-radius: 50%; background: transparent; color: var(--g-ink3, #3F3F3F); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; line-height: 1; cursor: help; display: flex; align-items: center; justify-content: center">?</button>
+<span style="flex: 1 1 auto"></span>
+<sc-if value="{{ radioHelp }}" hint-placeholder-val="{{ false }}">
+<p id="radio-log-help" role="tooltip" style="position: absolute; z-index: 2; top: 30px; left: 0; width: 360px; margin: 0; padding: 10px 12px; border-radius: 4px; background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF); font-size: 13px; line-height: 1.45; box-shadow: 0 12px 28px rgba(17,17,17,0.3)">Every change this race. Today’s can be undone; earlier days are read-only. Add a note to anything you want to bring up in the Mechanics session.</p>
+</sc-if>
+<button type="button" onClick="{{ toggleRadioLog }}" aria-label="Close the race log" style="width: 28px; height: 28px; padding: 0; border: 0; border-radius: 4px; background: rgba(var(--g-dk, 17,17,17), 0.08); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+</div>
+<sc-if value="{{ sessLive }}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; padding: 12px 18px 14px; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.12); display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 4px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--g-red, #C20500)">CHECKLIST · ANY ORDER</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-ink3, #3F3F3F)">{{ pitScore }}</span>
+</div>
+<sc-for list="{{ pitList }}" as="pc" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 12px; min-height: 48px">
+<button type="button" role="checkbox" aria-checked="{{ pc.checked }}" onClick="{{ pc.toggle }}" aria-label="{{ pc.checkLabel }}" style="flex: none; width: 20px; height: 20px; padding: 0; box-sizing: border-box; border: 1.5px solid var(--g-line, #111111); border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; {{ pc.boxStyle }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></button>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 1px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="font-size: 15px; font-weight: 600; {{ pc.labelStyle }}">{{ pc.label }}</span><sc-if value="{{ pc.here }}" hint-placeholder-val="{{ false }}"><span style="padding: 1px 7px; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 0.12em">YOU’RE HERE</span></sc-if></span>
+<span style="font-size: 12px; color: var(--g-mute, #6B6B6B)">{{ pc.sub }}</span>
+</span>
+<sc-if value="{{ pc.isLink }}" hint-placeholder-val="{{ true }}">
+<a href="{{ pc.href }}" onClick="{{ pc.go }}" aria-label="{{ pc.actAria }}" style="flex: none; min-height: 30px; display: inline-flex; align-items: center; padding: 0 12px; border: 1px solid var(--g-line, #111111); border-radius: 999px; color: var(--g-ink, #111111); text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em">{{ pc.actLabel }} →</a>
+</sc-if>
+<sc-if value="{{ pc.isButton }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ pc.go }}" aria-label="{{ pc.actAria }}" style="flex: none; min-height: 30px; padding: 0 12px; border: 1px solid var(--g-line, #111111); border-radius: 999px; background: transparent; color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer">{{ pc.actLabel }}</button>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<div id="radio-log-list" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 4px 18px 16px">
+<sc-if value="{{ auditEmpty }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 20px 0; text-align: center; font-size: 14px; color: var(--g-ink3, #3F3F3F)">No changes logged yet this race.</p>
+</sc-if>
+<sc-if value="{{ hasPending }}" hint-placeholder-val="{{ false }}">
+<div style="margin-top: 12px; padding: 12px 14px; border-radius: 4px; border: 1.5px dashed #C20500; background: rgba(225,6,0,0.05); display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="flex: 1 1 auto; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--g-red, #C20500)">{{ pendingTitle }}</span>
+<button type="button" onClick="{{ savePending }}" style="flex: none; min-height: 30px; padding: 0 14px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer">SAVE</button>
+</div>
+<sc-for list="{{ pendingItems }}" as="pi" hint-placeholder-count="2">
+<span style="font-size: 13px; line-height: 1.4; color: var(--g-ink3, #3F3F3F)">{{ pi.text }}</span>
+</sc-for>
+</div>
+</sc-if>
+<sc-for list="{{ auditDays }}" as="ad" hint-placeholder-count="3">
+<div style="padding: 14px 0 2px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; color: var(--g-red, #C20500)">{{ ad.title }}</div>
+<sc-for list="{{ ad.items }}" as="ae" hint-placeholder-count="2">
+<div onMouseEnter="{{ ae.rowIn }}" onMouseLeave="{{ ae.rowOut }}" style="display: flex; flex-direction: column; gap: 6px; padding: 10px 0; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.08)">
+<div style="display: flex; align-items: flex-start; gap: 10px">
+<span style="flex: none; width: 44px; padding-top: 1px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; color: var(--g-ink3, #3F3F3F)">{{ ae.time }}</span>
+<span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 14px; font-weight: 700; line-height: 1.35; color: var(--g-ink, #111111)">{{ ae.main }}</span>
+<sc-if value="{{ ae.hasDetail }}" hint-placeholder-val="{{ true }}">
+<span style="font-size: 13px; line-height: 1.35; color: var(--g-mute, #6B6B6B)">{{ ae.detail }}</span>
+</sc-if>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-mute, #6B6B6B)">{{ ae.where }}</span>
+</span>
+<sc-if value="{{ ae.canUndo }}" hint-placeholder-val="{{ false }}">
+<button type="button" onClick="{{ ae.undo }}" aria-label="{{ ae.undoLabel }}" style="flex: none; min-height: 28px; display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; border: 1px solid var(--g-line, #111111); border-radius: 999px; background: transparent; color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14L4 9l5-5"></path><path d="M4 9h10a6 6 0 010 12h-3"></path></svg>UNDO</button>
+</sc-if>
+</div>
+<sc-if value="{{ ae.hasComment }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0 0 0 54px; padding: 6px 10px; border-left: 2px solid #E10600; background: rgba(225,6,0,0.05); font-size: 13px; line-height: 1.4; font-style: italic">{{ ae.comment }}</p>
+</sc-if>
+<sc-if value="{{ ae.editing }}" hint-placeholder-val="{{ false }}">
+<div style="margin-left: 54px; display: flex; gap: 6px">
+<input type="text" value="{{ ae.draft }}" onChange="{{ ae.setDraft }}" onKeyDown="{{ ae.draftKey }}" placeholder="e.g. couldn’t focus, short on sleep" aria-label="Note for the Mechanics session" style="flex: 1 1 auto; min-width: 0; min-height: 34px; padding: 0 10px; border: 1px solid rgba(var(--g-dk, 17,17,17), 0.35); border-radius: 4px; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 14px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)">
+<button type="button" onClick="{{ ae.saveComment }}" style="flex: none; min-height: 34px; padding: 0 12px; border: 0; border-radius: 999px; background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer">SAVE</button>
+</div>
+</sc-if>
+<sc-if value="{{ ae.notEditing }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ ae.startComment }}" onFocus="{{ ae.rowIn }}" style="align-self: flex-start; margin-left: 54px; padding: 0; border: 0; background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--g-red, #C20500); cursor: pointer; transition: opacity 120ms; {{ ae.noteBtnStyle }}">{{ ae.commentLabel }}</button>
+</sc-if>
+</div>
+</sc-for>
+</sc-for>
+</div>
+<div style="flex: none; display: flex; align-items: center; gap: 10px; padding: 12px 18px; border-top: 1px solid rgba(var(--g-dk, 17,17,17), 0.12); background: rgba(var(--g-dk, 17,17,17), 0.03)">
+<span style="flex: 1 1 auto; min-width: 0; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: var(--g-ink3, #3F3F3F)">{{ sessionWhen }}</span>
+<sc-if value="{{ pitCan }}" hint-placeholder-val="{{ true }}">
+<button type="button" onClick="{{ openPit }}" style="flex: none; min-height: 32px; padding: 0 14px; border: 1.5px solid #E10600; border-radius: 999px; background: transparent; color: var(--g-red, #C20500); font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer">EMERGENCY PIT STOP</button>
+</sc-if>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ pitOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 34; background: rgba(17,17,17,0.4); display: flex; align-items: center; justify-content: center">
+<div role="dialog" aria-modal="true" aria-labelledby="pit-h" style="width: 520px; box-sizing: border-box; padding: 24px 26px; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.98); box-shadow: 0 30px 60px rgba(17,17,17,0.4); display: flex; flex-direction: column; gap: 14px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: var(--g-red, #C20500)">EMERGENCY PIT STOP</span>
+<h2 id="pit-h" style="margin: 0; font-size: 22px; font-weight: 700">Bring the Mechanics session forward?</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: var(--g-ink3, #3F3F3F)">It’s set for {{ pitFrom }}. The race ends when the session starts, so laps planned after the new time go to the debrief as unfinished.</p>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.1em">NEW TIME</span>
+<div role="group" aria-label="Day" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{ pitDays }}" as="pd" hint-placeholder-count="4">
+<button type="button" onClick="{{ pd.pick }}" aria-pressed="{{ pd.pressed }}" style="min-height: 36px; padding: 0 14px; border: 0; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; {{ pd.style }}">{{ pd.label }}</button>
+</sc-for>
+<input type="time" step="900" value="{{ pitTime }}" onChange="{{ setPitTime }}" aria-label="Session start time" style="min-height: 36px; padding: 0 10px; border: 1.5px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)">
+</div>
+</div>
+<sc-if value="{{ pitHasError }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 13px; color: var(--g-red, #C20500)">{{ pitError }}</span>
+</sc-if>
+<div style="display: flex; align-items: center; gap: 10px; padding-top: 4px">
+<button type="button" onClick="{{ pitNow }}" style="margin-right: auto; min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">START NOW</button>
+<button type="button" onClick="{{ closePit }}" style="min-height: 44px; padding: 0 18px; border: 2px solid var(--g-line, #111111); border-radius: 999px; background: transparent; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">CANCEL</button>
+<button type="button" onClick="{{ pitMove }}" style="min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF); font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">MOVE SESSION</button>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ sessLive }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; z-index: 22; top: 14px; right: 32px; height: 44px; display: flex; align-items: center; gap: 10px">
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; background: rgba(255,255,255,0.1); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16); font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; color: rgb(255,255,255); white-space: nowrap"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #E10600; box-shadow: 0 0 8px #E10600"></span>MECHANICS SESSION</span>
+<button type="button" onClick="{{ openBrief }}" style="min-height: 44px; padding: 0 18px; border: 0; border-radius: 999px; background: #E10600; color: rgb(255,255,255); font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; white-space: nowrap; cursor: pointer">BRIEF &amp; START</button>
+<button type="button" onClick="{{ endSession }}" title="Mock only: end the session and go back to Race 04" aria-label="Mock only: end the session and go back to Race 04" style="width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.75); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+</sc-if>
+<sc-if value="{{ briefOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 33; background: rgba(17,17,17,0.45); display: flex; align-items: center; justify-content: center">
+<div role="dialog" aria-modal="true" aria-labelledby="brief-h" style="width: 1140px; height: 740px; box-sizing: border-box; border-radius: 4px; background: rgba(var(--g-glass, 255,255,255), 0.98); box-shadow: 0 30px 70px rgba(17,17,17,0.45); display: flex; flex-direction: column; overflow: hidden">
+<div style="flex: none; display: flex; align-items: flex-end; gap: 22px; padding: 22px 28px 16px; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.12)">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; color: var(--g-red, #C20500)">BRIEF AND START TIME</span>
+<h2 id="brief-h" style="margin: 0; font-family: Orbitron, sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.03em">RACE 05 BRIEF</h2>
+</div>
+<span style="padding-bottom: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: var(--g-ink3, #3F3F3F)">SUN 29 NOV – SAT 5 DEC</span>
+<button type="button" onClick="{{ br.close }}" aria-label="Close the brief" style="margin-left: auto; align-self: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 4px; background: rgba(var(--g-dk, 17,17,17), 0.08); cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+</div>
+<div style="flex: 1 1 auto; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; padding: 18px 28px 22px; overflow: hidden">
+<div style="min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 20px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">FOCUS FOR THIS RACE
+<input type="text" value="{{ br.focus }}" onChange="{{ br.setFocus }}" placeholder="One thing that matters most this race" style="min-height: 48px; padding: 0 14px; border: 1.5px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0; background: rgba(var(--g-glass, 255,255,255), 0.9); color: var(--g-ink, #111111)">
+</label>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">SUBGOAL FOCUS · PICK ONE PER GOAL</span>
+<sc-for list="{{ br.goals }}" as="bg" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(var(--g-dk, 17,17,17), 0.1)">
+<span aria-hidden="true" style="flex: none; width: 4px; align-self: stretch; border-radius: 2px; background: {{ bg.color }}"></span>
+<span style="flex: none; width: 200px; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 15px; font-weight: 600">{{ bg.name }}</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--g-mute, #6B6B6B)">{{ bg.hours }}</span>
+</span>
+<div role="radiogroup" aria-label="{{ bg.groupLabel }}" style="flex: 1 1 auto; display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{ bg.options }}" as="bo" hint-placeholder-count="2">
+<button type="button" role="radio" aria-checked="{{ bo.pressed }}" onClick="{{ bo.pick }}" style="min-height: 34px; padding: 0 12px; border: 0; border-radius: 999px; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 13px; cursor: pointer; {{ bo.style }}">{{ bo.label }}</button>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="min-height: 0; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">FROM THE DEBRIEF</span>
+<sc-if value="{{ br.noNotes }}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; font-size: 14px; color: var(--g-ink3, #3F3F3F)">No notes yet. Notes you write in the debrief show up here.</p>
+</sc-if>
+<sc-for list="{{ br.notes }}" as="bn" hint-placeholder-count="2">
+<p style="margin: 0; padding: 6px 12px; border-left: 2px solid #E10600; font-size: 14px; line-height: 1.45; color: var(--g-ink2, #2B2B2B)">{{ bn.text }}</p>
+</sc-for>
+</div>
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 4px; background: rgba(var(--g-dk, 17,17,17), 0.06)">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.16em">RACE 05 STARTS</span>
+<div role="group" aria-label="Start day" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{ br.startDays }}" as="bd" hint-placeholder-count="2">
+<button type="button" onClick="{{ bd.pick }}" aria-pressed="{{ bd.pressed }}" style="min-height: 38px; padding: 0 14px; border: 0; border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; {{ bd.style }}">{{ bd.label }}</button>
+</sc-for>
+<input type="time" step="900" value="{{ br.startTime }}" onChange="{{ br.setStartTime }}" aria-label="Start time" style="min-height: 38px; padding: 0 10px; border: 1.5px solid var(--g-line, #111111); border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111)">
+</div>
+<sc-if value="{{ br.hasError }}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 13px; color: var(--g-red, #C20500)">{{ br.error }}</span>
+</sc-if>
+<div style="display: flex; gap: 10px; padding-top: 4px">
+<button type="button" onClick="{{ br.startNow }}" style="min-height: 46px; padding: 0 18px; border: 1.5px solid var(--g-line, #111111); border-radius: 999px; background: transparent; color: var(--g-ink, #111111); font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">START NOW</button>
+<button type="button" onClick="{{ br.startAt }}" style="flex: 1 1 auto; min-height: 46px; padding: 0 20px; border: 0; border-radius: 999px; background: #E10600; color: #FFFFFF; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; cursor: pointer">{{ br.startLabel }}</button>
+</div>
+<span style="font-size: 12px; line-height: 1.45; color: var(--g-ink3, #3F3F3F)">Starting the race ends the session. Mock only: you return to Race 04 so you can try it again.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+
+
+<button type="button" aria-label="Go to today" onClick="{{ goToday }}" style="position: absolute; right: 8px; bottom: 6px; width: 46px; height: 46px; padding: 0; border: 0; background: transparent; cursor: pointer; filter: drop-shadow(0 6px 10px rgba(17,17,17,0.35)); font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif; font-size: 34px; line-height: 46px; text-align: center">📅</button>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+loadDdays() {
+try { const raw = window.localStorage.getItem('iterace.ddays.v1'); if (raw) { const o = JSON.parse(raw); if (o && Array.isArray(o.list)) return o; } } catch (err) {}
+return null;
+}
+saveDdays(list, sel) {
+const o = { list: list, sel: sel };
+try { window.localStorage.setItem('iterace.ddays.v1', JSON.stringify(o)); } catch (err) {}
+this.setState({ ddays: list, ddSel: sel });
+try { window.dispatchEvent(new CustomEvent('iterace-ddays', { detail: o })); } catch (err) {}
+if (this.broadcast) this.broadcast({ iteraceDdays: o });
+}
+pageId() { return 'home'; }
+pageClock() { const s = this.state || {}; const m = 13 * 60 + 12 + Math.floor(((s.secs || 0) + 8) / 60); return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); }
+loadAudit() {
+try { const raw = window.localStorage.getItem('iterace.audit.v1'); if (raw) { const o = JSON.parse(raw); if (Array.isArray(o)) return o; } } catch (err) {}
+return null;
+}
+auditList() {
+const s = this.state || {};
+if (Array.isArray(s.audit)) return s.audit;
+const stored = this.loadAudit();
+if (stored) return stored;
+return [
+{ id: 'seed0', day: '2026-11-22', time: '08:00', text: 'Race 04 started · start time set in Saturday’s Mechanics session', page: 'week', kind: 'seed', undone: false, comment: '' },
+{ id: 'seed1', day: '2026-11-23', time: '21:40', text: 'Logged Chapter 3 · 35m by hand', page: 'home', kind: 'seed', undone: false, comment: '' },
+{ id: 'seed2', day: '2026-11-24', time: '18:55', text: 'Moved Chapter 4 · Tue 24 19:00 → Thu 26 18:00', page: 'week', kind: 'seed', undone: false, comment: 'Couldn’t focus, short on sleep.' },
+{ id: 'seed3', day: '2026-11-24', time: '22:10', text: 'Moved Practice test · Sat 28 09:30 → Sat 28 10:00', page: 'week', kind: 'seed', undone: false, comment: '' }
+];
+}
+saveAudit(list) {
+try { window.localStorage.setItem('iterace.audit.v1', JSON.stringify(list)); } catch (err) {}
+this.setState({ audit: list });
+try { window.dispatchEvent(new CustomEvent('iterace-audit', { detail: list })); } catch (err) {}
+this.broadcast({ iteraceAudit: list });
+}
+loadSession() {
+try { const raw = window.localStorage.getItem('iterace.session.v1'); if (raw) { const o = JSON.parse(raw); if (o && o.day && o.time) return o; } } catch (err) {}
+return null;
+}
+sessionInfo() {
+const s = this.state || {};
+return s.sessionAt || this.loadSession() || { day: '2026-11-28', time: '19:00', live: false };
+}
+saveSession(o) {
+try { window.localStorage.setItem('iterace.session.v1', JSON.stringify(o)); } catch (err) {}
+this.setState({ sessionAt: o });
+try { window.dispatchEvent(new CustomEvent('iterace-session', { detail: o })); } catch (err) {}
+this.broadcast({ iteraceSession: o });
+}
+setStep(n) {
+const c = this.sessionInfo();
+this.saveSession(Object.assign({}, c, { step: n }));
+}
+endSessionMock() {
+const c = this.sessionInfo();
+const back = c.prev || { day: '2026-11-28', time: '19:00' };
+this.saveSession({ day: back.day, time: back.time, live: false });
+}
+sessionLabel(o) {
+const p = String(o.day).split('-').map(Number);
+const dt = new Date(p[0], p[1] - 1, p[2]);
+return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][dt.getDay()] + ' ' + dt.getDate() + ' ' + o.time;
+}
+broadcast(msg) {
+try {
+const par = window.parent;
+if (!par || par === window) return;
+for (let i = 0; i < par.frames.length; i++) {
+const fr = par.frames[i];
+if (fr && fr !== window) fr.postMessage(msg, '*');
+}
+} catch (err) {}
+}
+addAudit(text, kind, payload) {
+const e = { id: 'a' + Date.now() + '-' + Math.floor(Math.random() * 1000), day: '2026-11-25', time: this.pageClock(), text: text, page: this.pageId(), kind: kind, payload: payload || null, undone: false, comment: '' };
+this.saveAudit(this.auditList().concat([e]));
+return e.id;
+}
+undoAudit(id) {
+this.saveAudit(this.auditList().map((e) => (e.id === id ? Object.assign({}, e, { undone: true }) : e)));
+}
+commentAudit(id, text) {
+this.saveAudit(this.auditList().map((e) => (e.id === id ? Object.assign({}, e, { comment: String(text || '').trim() }) : e)));
+this.setState({ radioEditing: null });
+}
+mountAudit() {
+this._onAudit = (e) => { const l = (e && Array.isArray(e.detail)) ? e.detail : this.loadAudit(); if (Array.isArray(l)) this.setState({ audit: l }); };
+window.addEventListener('iterace-audit', this._onAudit);
+window.addEventListener('storage', this._onAudit);
+this._onMsg = (e) => {
+const d = e && e.data;
+if (!d || typeof d !== 'object') return;
+if (Array.isArray(d.iteraceAudit) && d.iteraceAudit.every((x) => x && typeof x.id === 'string' && typeof x.text === 'string')) this.setState({ audit: d.iteraceAudit });
+if (d.iteraceDdays && Array.isArray(d.iteraceDdays.list) && this._onDd) this._onDd({ detail: d.iteraceDdays });
+if (d.iteraceSession && d.iteraceSession.day && d.iteraceSession.time) this.setState({ sessionAt: d.iteraceSession });
+};
+window.addEventListener('message', this._onMsg);
+this._onSess = (e) => { const o = (e && e.detail && e.detail.day) ? e.detail : this.loadSession(); if (o) this.setState({ sessionAt: o }); };
+window.addEventListener('iterace-session', this._onSess);
+window.addEventListener('storage', this._onSess);
+const ss = this.loadSession();
+if (ss) this.setState({ sessionAt: ss });
+this._reverted = {};
+const al = this.loadAudit();
+(al || []).forEach((e) => { if (e.undone) this._reverted[e.id] = true; });
+if (al) this.setState({ audit: al });
+}
+unmountAudit() {
+window.removeEventListener('iterace-audit', this._onAudit);
+window.removeEventListener('storage', this._onAudit);
+window.removeEventListener('message', this._onMsg);
+window.removeEventListener('iterace-session', this._onSess);
+window.removeEventListener('storage', this._onSess);
+}
+checkAuditReverts() {
+const liveNow = !!this.sessionInfo().live;
+const wasLive = this._wasLive;
+this._wasLive = liveNow;
+if (liveNow && !wasLive) this.setState({ radioLogOpen: true, radioHover: false });
+this._reverted = this._reverted || {};
+this.auditList().forEach((e) => {
+if (e.undone && e.page === this.pageId() && !this._reverted[e.id]) {
+this._reverted[e.id] = true;
+if (e.kind === 'session-move') { const p = e.payload || {}; if (p.from) this.saveSession({ day: p.from.day, time: p.from.time, live: false }); }
+else if (this.revertAudit) this.revertAudit(e);
+}
+});
+}
+auditVals(msgs, pending) {
+const s = this.state || {};
+const TODAY = '2026-11-25';
+const all = this.auditList();
+const list = all.filter((e) => e.day >= '2026-11-22' && e.day <= '2026-11-28' && !e.undone);
+const seq = {};
+all.forEach((e, i) => { seq[e.id] = i; });
+const DW = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const MO = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+const dayTitle = (k) => { const p = k.split('-').map(Number); const dt = new Date(p[0], p[1] - 1, p[2]); return (k === TODAY ? 'TODAY · ' : '') + DW[dt.getDay()] + ' ' + dt.getDate() + ' ' + MO[dt.getMonth()]; };
+const keys = list.map((e) => e.day).filter((k, i, a) => a.indexOf(k) === i).sort().reverse();
+const editing = s.radioEditing || null;
+const rowOn = s.radioRow || null;
+const WHERE = { home: 'HOME', week: 'RACE WEEK', goals: 'GOALS' };
+const auditDays = keys.map((k) => ({
+title: dayTitle(k),
+items: list.filter((e) => e.day === k).sort((a, b) => (a.time < b.time ? 1 : a.time > b.time ? -1 : seq[b.id] - seq[a.id])).map((e) => ({
+time: e.time,
+text: e.text,
+main: String(e.text).split(' \u00b7 ')[0],
+detail: String(e.text).split(' \u00b7 ').slice(1).join(' \u00b7 '),
+hasDetail: String(e.text).indexOf(' \u00b7 ') >= 0,
+where: WHERE[e.page] || '',
+canUndo: e.day === TODAY && e.kind !== 'seed' && e.kind !== 'session-start',
+undoLabel: 'Undo: ' + e.text,
+undo: () => this.undoAudit(e.id),
+rowIn: () => { if ((this.state || {}).radioRow !== e.id) this.setState({ radioRow: e.id }); },
+rowOut: () => { if ((this.state || {}).radioRow === e.id) this.setState({ radioRow: null }); },
+noteBtnStyle: rowOn === e.id ? 'opacity: 1;' : 'opacity: 0;',
+hasComment: !!e.comment && editing !== e.id,
+comment: e.comment || '',
+editing: editing === e.id,
+notEditing: editing !== e.id,
+commentLabel: e.comment ? 'EDIT NOTE' : '+ ADD NOTE',
+startComment: () => this.setState({ radioEditing: e.id, radioDraft: e.comment || '' }),
+draft: s.radioDraft || '',
+setDraft: (ev) => this.setState({ radioDraft: ev.target.value }),
+saveComment: () => this.commentAudit(e.id, (this.state || {}).radioDraft || ''),
+draftKey: (ev) => { if (ev.key === 'Enter') this.commentAudit(e.id, (this.state || {}).radioDraft || ''); else if (ev.key === 'Escape') this.setState({ radioEditing: null }); }
+}))
+}));
+const count = s.radioCount || 1;
+const pend = pending && pending.items && pending.items.length ? pending : null;
+const ses = this.sessionInfo();
+const toM = (t) => { const q = String(t).split(':').map(Number); return q[0] * 60 + q[1]; };
+const NOWM = 13 * 60 + 12;
+const pitDayKeys = ['2026-11-25', '2026-11-26', '2026-11-27', '2026-11-28'].filter((k) => k <= ses.day);
+const pitDay = s.pitDay && pitDayKeys.indexOf(s.pitDay) >= 0 ? s.pitDay : pitDayKeys[0];
+const DSH = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const dayChip = (k) => { const p = k.split('-').map(Number); const dt = new Date(p[0], p[1] - 1, p[2]); return (k === TODAY ? 'TODAY' : DSH[dt.getDay()] + ' ' + dt.getDate()); };
+const fm = (x) => (x < 60 ? x + 'm' : Math.floor(x / 60) + 'h' + (x % 60 ? ' ' + (x % 60) + 'm' : ''));
+const BG = [['JAPANESE', 'Japanese', '#E10600', 240, ['Know 650 N3 kanji', 'Pass a full N3 practice test']], ['PYTHON', 'Python', '#1C64F2', 300, ['Parse every date format', 'Tests passing']], ['READING', 'Reading', '#7A3CE0', 180, ['Autumn: 4 books', 'Winter: 4 books']], ['PORTFOLIO', 'Portfolio', '#00A86B', 120, ['Three project write-ups', 'About page']]];
+const brief = ses.brief || {};
+const notes = ses.notes || {};
+const plan = ses.plan || null;
+const patch = (p) => this.saveSession(Object.assign({}, this.sessionInfo(), p));
+const patchBrief = (p) => { const c = this.sessionInfo(); this.saveSession(Object.assign({}, c, { brief: Object.assign({}, c.brief || {}, p) })); };
+const bDay = brief.day || '2026-11-29';
+const bTime = brief.time ?? '09:00';
+const noteList = [String(notes.why || '').trim()].concat(BG.map(([k, name]) => (String((notes.goals || {})[k] || '').trim() ? name + ': ' + String(notes.goals[k]).trim() : ''))).filter(Boolean);
+const here = this.pageId();
+const rwView = ses.rwView || 'unf';
+const briefOn = !!s.briefOpen && !!ses.live;
+const curN = briefOn ? 4 : here === 'home' ? 1 : here === 'week' ? (rwView === 'unf' ? 2 : 3) : 0;
+const unfLeft = typeof ses.unfLeft === 'number' ? ses.unfLeft : null;
+const finish = (label) => {
+this.endSessionMock();
+this.setState({ briefOpen: false, briefError: '', radioFlash: 'Race 05 starts ' + label + '. Mock: back to Race 04.' });
+setTimeout(() => { if ((this.state || {}).radioFlash) this.setState({ radioFlash: null }); }, 5000);
+};
+const checks = ses.checks || {};
+const plannedAll = plan ? BG.reduce((acc, g) => acc + (plan[g[0]] || 0), 0) : null;
+const targetAll = BG.reduce((acc, g) => acc + g[3], 0);
+const ITEMS = [
+{ k: 'debrief', label: 'Debrief', sub: 'Review Race 04 and write notes', href: 'HomeFromSpec.dc.html', here: here === 'home' && !briefOn, go: () => this.setState({ briefOpen: false }) },
+{ k: 'unf', label: 'Unfinished laps', sub: unfLeft === null ? 'Carry or drop on Race week' : unfLeft ? unfLeft + ' still to carry or drop' : 'Every lap decided', href: 'RaceWeek.dc.html', here: here === 'week' && rwView === 'unf' && !briefOn, go: () => { this.setState({ briefOpen: false }); patch({ rwView: 'unf' }); } },
+{ k: 'plan', label: 'Plan Race 05', sub: plannedAll === null ? 'Lay out the next race on Race week' : fm(plannedAll) + ' planned of ' + fm(targetAll) + ' in targets', href: 'RaceWeek.dc.html', here: here === 'week' && rwView !== 'unf' && !briefOn, go: () => { this.setState({ briefOpen: false }); patch({ rwView: 'plan' }); } },
+{ k: 'brief', label: 'Brief & start', sub: 'Focus, subgoals and the start time', href: '', here: briefOn, go: () => this.setState({ briefOpen: true }) }
+];
+const nDone = ITEMS.filter((it) => checks[it.k]).length;
+return {
+garageAttr: ses.live ? '1' : '0',
+sessLive: !!ses.live,
+notSessLive: !ses.live,
+pitList: ITEMS.map((it) => ({
+label: it.label,
+sub: it.sub,
+href: it.href,
+isLink: !!it.href,
+isButton: !it.href,
+actLabel: it.href ? 'GO' : 'OPEN',
+actAria: (it.href ? 'Go to ' : 'Open ') + it.label.toLowerCase(),
+here: !!it.here,
+checked: checks[it.k] ? 'true' : 'false',
+checkLabel: (checks[it.k] ? 'Untick ' : 'Tick off ') + it.label.toLowerCase(),
+boxStyle: checks[it.k] ? 'background: #E10600; border-color: #E10600; color: #FFFFFF;' : 'background: transparent; color: transparent;',
+labelStyle: checks[it.k] ? 'color: var(--g-mute, #6B6B6B); text-decoration: line-through;' : 'color: var(--g-ink, #111111);',
+toggle: () => { const c = this.sessionInfo(); this.saveSession(Object.assign({}, c, { checks: Object.assign({}, c.checks || {}, { [it.k]: !(c.checks || {})[it.k] }) })); },
+go: it.go
+})),
+pitScore: nDone + ' OF ' + ITEMS.length + ' DONE',
+briefOpen: briefOn,
+openBrief: () => this.setState({ briefOpen: true }),
+br: {
+close: () => this.setState({ briefOpen: false, briefError: '' }),
+focus: brief.focus ?? 'Get the cleaner tests passing before the study group.',
+setFocus: (e) => patchBrief({ focus: e.target.value }),
+goals: BG.map(([k, name, color, target, opts]) => {
+const pick = (brief.subs || {})[k] || opts[0];
+return {
+name: name,
+color: color,
+hours: (plan && plan[k] !== undefined ? fm(plan[k]).toUpperCase() + ' PLANNED' : 'NOT PLANNED YET') + ' · TARGET ' + fm(target).toUpperCase(),
+groupLabel: name + ' subgoal focus',
+options: opts.map((o) => ({ label: o, pressed: pick === o ? 'true' : 'false', style: pick === o ? 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);' : 'background: rgba(var(--g-dk, 17,17,17), 0.08); color: var(--g-ink, #111111);', pick: () => { const c = this.sessionInfo(); patchBrief({ subs: Object.assign({}, (c.brief || {}).subs || {}, { [k]: o }) }); } }))
+};
+}),
+notes: noteList.map((t) => ({ text: t })),
+noNotes: noteList.length === 0,
+startDays: [['2026-11-29', 'SUN 29'], ['2026-11-30', 'MON 30']].map(([k, l]) => ({ label: l, pressed: bDay === k ? 'true' : 'false', style: bDay === k ? 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);' : 'background: rgba(var(--g-dk, 17,17,17), 0.08); color: var(--g-ink, #111111);', pick: () => { patchBrief({ day: k }); this.setState({ briefError: '' }); } })),
+startTime: bTime,
+setStartTime: (e) => { patchBrief({ time: e.target.value }); this.setState({ briefError: '' }); },
+hasError: !!s.briefError,
+error: s.briefError || '',
+startLabel: 'START RACE 05 · ' + (bDay === '2026-11-29' ? 'SUN 29' : 'MON 30') + ' ' + (bTime || '--:--'),
+startAt: () => {
+const b = this.sessionInfo().brief || {};
+const t = b.time ?? '09:00';
+if (!/^\d{2}:\d{2}$/.test(t)) { this.setState({ briefError: 'Pick a start time, or press START NOW.' }); return; }
+finish(((b.day || '2026-11-29') === '2026-11-29' ? 'Sun 29' : 'Mon 30') + ' at ' + t);
+},
+startNow: () => finish('now')
+},
+endSession: () => this.endSessionMock(),
+sessionWhen: 'MECHANICS SESSION \u00b7 ' + this.sessionLabel(ses).toUpperCase(),
+pitCan: !ses.live,
+pitOpen: !!s.pitOpen && !ses.live,
+openPit: () => this.setState({ pitOpen: true, pitDay: pitDayKeys[0], pitTime: '', pitError: '' }),
+closePit: () => this.setState({ pitOpen: false, pitError: '' }),
+pitFrom: this.sessionLabel(ses),
+pitDays: pitDayKeys.map((k) => ({ label: dayChip(k), pressed: pitDay === k ? 'true' : 'false', style: pitDay === k ? 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);' : 'background: rgba(var(--g-dk, 17,17,17), 0.08); color: var(--g-ink, #111111);', pick: () => this.setState({ pitDay: k, pitError: '' }) })),
+pitTime: s.pitTime || '',
+setPitTime: (e) => this.setState({ pitTime: e.target.value, pitError: '' }),
+pitHasError: !!s.pitError,
+pitError: s.pitError || '',
+pitMove: () => {
+const c = this.state || {};
+const t = c.pitTime || '';
+if (!/^\d{2}:\d{2}$/.test(t)) { this.setState({ pitError: 'Pick a time for the session.' }); return; }
+if (pitDay === TODAY && toM(t) <= NOWM) { this.setState({ pitError: 'That time has already passed. Use START NOW instead.' }); return; }
+if (pitDay > ses.day || (pitDay === ses.day && toM(t) >= toM(ses.time))) { this.setState({ pitError: 'An emergency pit stop can only bring the session earlier.' }); return; }
+const to = { day: pitDay, time: t };
+this.saveSession({ day: pitDay, time: t, live: false });
+this.addAudit('Moved the Mechanics session earlier \u00b7 ' + this.sessionLabel(ses) + ' \u2192 ' + this.sessionLabel(to), 'session-move', { from: { day: ses.day, time: ses.time }, to: to });
+this.setState({ pitOpen: false, pitError: '' });
+},
+pitNow: () => {
+const prev = { day: ses.day, time: ses.time };
+this.addAudit('Called an emergency pit stop \u00b7 session started now instead of ' + this.sessionLabel(ses), 'session-start', { from: prev });
+this.saveSession({ day: TODAY, time: this.pageClock(), live: true, prev: prev, rwView: 'unf' });
+this.setState({ pitOpen: false, pitError: '', radioLogOpen: true });
+},
+radioHelp: !!s.radioHelp,
+helpIn: () => { if (!(this.state || {}).radioHelp) this.setState({ radioHelp: true }); },
+helpOut: () => this.setState({ radioHelp: false }),
+hasPending: !!pend,
+pendingTitle: pend ? 'NOT SAVED YET · ' + pend.items.length + (pend.items.length === 1 ? ' CHANGE' : ' CHANGES') : '',
+pendingItems: pend ? pend.items.map((t) => ({ text: t })) : [],
+savePending: pend ? pend.save : null,
+radioBubble: (!!s.radioHover || !!s.radioFlash) && !s.radioLogOpen,
+radioMsg: s.radioFlash || msgs[(count - 1) % msgs.length],
+radioIn: () => { const c = this.state || {}; if (!c.radioHover) this.setState({ radioHover: true, radioCount: (c.radioCount || 0) + 1 }); },
+radioOut: () => this.setState({ radioHover: false }),
+radioLogOpen: !!s.radioLogOpen,
+radioLogExpanded: s.radioLogOpen ? 'true' : 'false',
+toggleRadioLog: () => this.setState({ radioLogOpen: !(this.state || {}).radioLogOpen, radioHover: false, radioEditing: null }),
+auditDays: auditDays,
+auditEmpty: list.length === 0 && !pend,
+raceLogTitle: ses.live ? 'PIT WALL · MECHANICS SESSION' : 'TEAM RADIO · RACE 04 LOG'
+};
+}
+revertAudit(e) {
+const c = this.state || {};
+const p = e.payload || {};
+if (e.kind === 'sess') {
+const sm = Object.assign({}, c.sess || {});
+if (p.before) sm[p.lapId] = p.before; else delete sm[p.lapId];
+const dm = Object.assign({}, c.doneMap || {});
+if (p.beforeDone === null || p.beforeDone === undefined) delete dm[p.lapId]; else dm[p.lapId] = p.beforeDone;
+this.setState({ sess: sm, doneMap: dm });
+} else if (e.kind === 'move') {
+const mv = Object.assign({}, c.moves || {});
+if (p.before) mv[p.lapId] = p.before; else delete mv[p.lapId];
+this.setState({ moves: mv });
+} else if (e.kind === 'event-add') {
+const m = Object.assign({}, c.added || {}); delete m[p.id]; this.setState({ added: m });
+} else if (e.kind === 'event-dismiss') {
+const m = Object.assign({}, c.dismissed || {}); delete m[p.id]; this.setState({ dismissed: m });
+}
+}
+componentDidMount() {
+this.mountAudit();
+this._onSplitMove = (ev) => {
+const d = this._split;
+if (!d) return;
+const w = Math.max(380, Math.min(820, Math.round(d.w0 + (ev.clientX - d.x0) / d.scale)));
+this.setState({ calW: w });
+};
+this._onSplitUp = () => { this._split = null; };
+this._onKey = (ev) => { if (ev.key === 'Escape') { const c = this.state || {}; if (c.onboardOpen) this.setState({ onboardOpen: false, obConfirm: false }); else if (c.planOpen) this.setState({ planOpen: false }); } };
+window.addEventListener('pointermove', this._onSplitMove);
+window.addEventListener('pointerup', this._onSplitUp);
+window.addEventListener('keydown', this._onKey);
+const dd = this.loadDdays();
+if (dd) this.setState({ ddays: dd.list, ddSel: dd.sel });
+this._onDd = (e) => { const o = (e && e.detail) || this.loadDdays(); if (o && Array.isArray(o.list)) this.setState({ ddays: o.list, ddSel: o.sel }); };
+window.addEventListener('iterace-ddays', this._onDd);
+window.addEventListener('storage', this._onDd);
+this.tick = setInterval(() => {
+const s = this.state || {};
+const running = s.running ?? true;
+const next = { secs: (s.secs || 0) + 1 };
+if (running) {
+const auto = ((s.autoEnd || {})[s.active ?? 'd25b']) ?? true;
+const cur = s.remaining ?? 2868;
+if (auto && cur <= 0) { next.running = false; }
+else {
+const r = cur - 1;
+if (auto && r <= 0) { next.remaining = 0; next.running = false; } else { next.remaining = r; }
+}
+}
+this.setState(next);
+}, 1000);
+this.scrollTimer = setTimeout(() => {
+if (this._didScroll) return;
+const el = document.getElementById('iterace-cal-scroll');
+if (el) { el.scrollTop = 280; this._calEl = el; this._didScroll = true; }
+}, 80);
+}
+componentDidUpdate() {
+this.checkAuditReverts();
+{
+const sNow = this.state || {};
+if (this.sessionInfo().live && ((sNow.running ?? true) || sNow.onboardOpen)) this.setState({ running: false, onboardOpen: false });
+}
+if (this._pendingShift && this._calEl) {
+const shift = this._pendingShift;
+this._pendingShift = 0;
+this._calEl.scrollTop += shift;
+}
+this._extending = false;
+}
+componentWillUnmount() {
+this.unmountAudit();
+window.removeEventListener('pointermove', this._onSplitMove);
+window.removeEventListener('pointerup', this._onSplitUp);
+window.removeEventListener('keydown', this._onKey);
+window.removeEventListener('iterace-ddays', this._onDd);
+window.removeEventListener('storage', this._onDd);
+if (this.tick) { clearInterval(this.tick); this.tick = null; }
+if (this.scrollTimer) { clearTimeout(this.scrollTimer); this.scrollTimer = null; }
+}
+lapData() {
+return {
+'2026-11-23': [
+{ id: 'd23a', goal: 'JAPANESE', title: 'Vocabulary set 12', start: 570, est: 30, rec: 30, done: true, rep: true, desc: 'Review the new kanji set and use each word in a sentence.', sessions: ['Mon 09:30–10:00 · 30m · timed'] },
+{ id: 'd23b', goal: 'PYTHON', title: 'Read the CSV into a table', start: 840, est: 60, rec: 60, done: true, desc: 'Load the raw export and check every column came through.', sessions: ['Mon 14:00–15:00 · 1h · timed'] },
+{ id: 'd23c', goal: 'READING', title: 'Chapter 3', start: 1260, est: 30, rec: 35, done: true, desc: 'Read chapter 3 and jot down one idea worth keeping.', sessions: ['Mon 21:00–21:35 · 35m · logged by hand'] }
+],
+'2026-11-24': [
+{ id: 'd24a', goal: 'JAPANESE', title: 'Listening practice', start: 570, est: 30, rec: 30, done: true, rep: true, desc: 'One episode of the listening podcast, then shadow five lines.', sessions: ['Tue 09:30–10:00 · 30m · timed'] },
+{ id: 'd24b', goal: 'PYTHON', title: 'Find the broken rows', start: 810, est: 60, rec: 75, done: false, desc: 'Spot the rows that fail to load and note why.', sessions: ['Tue 13:30–14:15 · 45m · timed', 'Tue 19:00–19:30 · 30m · timed'] },
+{ id: 'd24c', goal: 'READING', title: 'Chapter 4', start: 1140, est: 30, rec: 0, done: false, moved: 'Moved to Thu', desc: 'Read chapter 4.', sessions: [] }
+],
+'2026-11-25': [
+{ id: 'd25a', goal: 'JAPANESE', title: 'Grammar drills — unit 6', start: 570, est: 45, rec: 45, done: true, rep: true, desc: 'Unit 6 drills, then redo the ones you missed.', sessions: ['Wed 09:30–10:15 · 45m · timed'] },
+{ id: 'd25b', goal: 'PYTHON', title: 'Parse the date column', start: 780, est: 60, rec: 0, done: false, desc: 'Turn the date text into real dates so the cleaner can sort by day.', sessions: [] },
+{ id: 'd25c', goal: 'READING', title: 'Chapter 5', start: 990, est: 30, rec: 0, done: false, desc: 'Read chapter 5 and note one thing for the portfolio.', sessions: [] },
+{ id: 'd25d', goal: 'PORTFOLIO', title: 'Outline the About page', start: 1200, est: 25, rec: 0, done: false, desc: 'Three bullet points: who you are, what you build, what you want next.', sessions: [] }
+],
+'2026-11-26': [
+{ id: 'd26b', goal: 'JAPANESE', title: 'Kanji review', start: 570, est: 30, rec: 0, done: false, rep: true, desc: 'Review this race’s kanji.', sessions: [] },
+{ id: 'd26c', goal: 'PYTHON', title: 'Write tests for the cleaner', start: 780, est: 60, rec: 0, done: false, desc: 'Cover the date parsing with a few small tests.', sessions: [] },
+{ id: 'd26a', goal: 'READING', title: 'Chapter 4', start: 1080, est: 30, rec: 0, done: false, movedIn: 'Moved here from Tue', desc: 'Read chapter 4.', sessions: [] }
+],
+'2026-11-27': [
+{ id: 'd27c', goal: 'JAPANESE', title: 'Reading drill', start: 570, est: 30, rec: 0, done: false, rep: true, desc: 'Read one graded-reader story out loud.', sessions: [] },
+{ id: 'd27a', goal: 'READING', title: 'Chapter 6', start: 900, est: 40, rec: 0, done: false, desc: 'Read chapter 6.', sessions: [] },
+{ id: 'd27b', goal: 'PORTFOLIO', title: 'Draft the About page', start: 1200, est: 45, rec: 0, done: false, desc: 'Turn the outline into a first draft.', sessions: [] }
+],
+'2026-11-28': [
+{ id: 'd28a', goal: 'JAPANESE', title: 'Practice test', start: 600, est: 60, rec: 0, done: false, rep: true, movedOne: 'This one moved from 09:30', desc: 'Timed practice test for units 5 and 6.', sessions: [] },
+{ id: 'd28b', goal: 'PYTHON', title: 'Share the cleaner', start: 840, est: 45, rec: 0, done: false, desc: 'Write a short readme and push it.', sessions: [] }
+]
+};
+}
+act(patch, text) {
+const c = this.state || {};
+this._undoAuditId = null;
+this._undo = { added: c.added || {}, dismissed: c.dismissed || {}, sess: c.sess || {}, doneMap: c.doneMap || {}, moves: c.moves || {}, active: c.active ?? 'd25b', extra: c.extra || {}, remaining: c.remaining ?? 2868, startRemaining: c.startRemaining ?? 3600, running: c.running ?? true };
+this.setState(patch);
+const id = Date.now();
+this.setState({ toast: { id: id, text: text } });
+setTimeout(() => {
+const n = this.state || {};
+if (n.toast && n.toast.id === id) this.setState({ toast: null });
+}, 6000);
+}
+undoLast() {
+if (!this._undo) return;
+if (this._undoAuditId) { this._reverted = this._reverted || {}; this._reverted[this._undoAuditId] = true; this.undoAudit(this._undoAuditId); this._undoAuditId = null; }
+const snap = this._undo;
+this._undo = null;
+this.setState(Object.assign({}, snap, { toast: null }));
+}
+renderVals() {
+const s = this.state || {};
+const TODAY = '2026-11-25';
+const secs = s.secs || 0;
+const selected = s.selected ?? TODAY;
+const expanded = ('expanded' in s) ? s.expanded : null;
+const view = s.view ?? 'hours';
+const remaining = s.remaining ?? 2868;
+const active = s.active ?? 'd25b';
+const autoMap = s.autoEnd || {};
+const autoOn = autoMap[active] ?? true;
+const autoEnded = autoOn && remaining <= 0;
+const running = (s.running ?? true) && !autoEnded;
+const toggleAuto = () => {
+const c = this.state || {};
+const id = c.active ?? 'd25b';
+const m = Object.assign({}, c.autoEnd || {});
+m[id] = !(m[id] ?? true);
+this.setState({ autoEnd: m });
+};
+const startRem = s.startRemaining ?? 3600;
+const extra = s.extra || {};
+const pad = (n) => String(n).padStart(2, '0');
+const fmt = (m) => (m < 60 ? m + 'm' : Math.floor(m / 60) + 'h' + (m % 60 ? ' ' + (m % 60) + 'm' : ''));
+const hm = (mins) => pad(Math.floor(mins / 60)) + ':' + pad(mins % 60);
+const WD = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const MON3 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+const DSHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const dayShort = (k) => { const dt = new Date(Number(k.slice(0, 4)), Number(k.slice(5, 7)) - 1, Number(k.slice(8, 10))); return DSHORT[dt.getDay()] + ' ' + dt.getDate(); };
+const raw0 = this.lapData();
+const data = {};
+Object.keys(raw0).forEach((k) => { data[k] = raw0[k].map((l) => Object.assign({}, l)); });
+const moves = s.moves || {};
+Object.keys(moves).forEach((id) => {
+const mv = moves[id];
+let src = null;
+let srcKey = null;
+Object.keys(data).forEach((k) => data[k].forEach((l) => { if (l.id === id) { src = l; srcKey = k; } }));
+if (!src) return;
+src.moved = 'Moved to ' + dayShort(mv.day) + ' ' + pad(Math.floor(mv.start / 60)) + ':' + pad(mv.start % 60);
+const left = Math.max(15, src.est - (mv.doneMin || 0));
+const copy = Object.assign({}, src, { id: id + '-m', start: mv.start, est: left, rec: 0, done: false, moved: null, movedIn: 'Moved here from ' + dayShort(srcKey), sessions: [] });
+data[mv.day] = (data[mv.day] || []).concat([copy]).sort((a, b) => a.start - b.start);
+});
+const toMinH = (t) => { const p = String(t || '0:0').split(':'); return Number(p[0]) * 60 + Number(p[1] || 0); };
+const sessEdits = s.sess || {};
+const doneMap = s.doneMap || {};
+const parseSess = (txt, k, i, id) => { const m = String(txt).match(/(\d{2}:\d{2})–(\d{2}:\d{2}).*?(timed|logged by hand)/); return m ? { id: id + '-s' + i, day: k, start: m[1], end: m[2], how: m[3] === 'timed' ? 'timed' : 'by hand' } : null; };
+Object.keys(data).forEach((k) => data[k].forEach((l) => {
+const base = (l.sessions || []).map((t, i) => (typeof t === 'string' ? parseSess(t, k, i, l.id) : t)).filter(Boolean);
+l.sess = sessEdits[l.id] ? sessEdits[l.id] : base;
+l.day = k;
+l.rec = l.sess.reduce((acc, g) => acc + Math.max(0, toMinH(g.end) - toMinH(g.start)), 0);
+if (doneMap[l.id] !== undefined) l.done = doneMap[l.id];
+}));
+
+const now = 13 * 3600 + 12 * 60 + 8 + secs;
+const clock = pad(Math.floor(now / 3600) % 24) + ':' + pad(Math.floor(now / 60) % 60) + ':' + pad(now % 60);
+const mockNow = new Date(2026, 10, 25, 13, 12, 8).getTime() + secs * 1000;
+const MON3D = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+const WD3D = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const pad2 = (n) => String(n).padStart(2, '0');
+const sesI = this.sessionInfo();
+const builtIn = { id: 'mech', name: 'Mechanics session', date: sesI.day, time: sesI.time, fixed: true };
+const customDdays = s.ddays ?? [{ id: 'dd-vac', name: 'Vacation', date: '2026-12-19', time: '' }];
+const allDdays = [builtIn].concat(customDdays);
+const ddSel = allDdays.some((d) => d.id === s.ddSel) ? s.ddSel : 'mech';
+const atOf = (d) => { const p = d.date.split('-').map(Number); const t = (d.time || '00:00').split(':').map(Number); return new Date(p[0], p[1] - 1, p[2], t[0], t[1] || 0); };
+const whenOf = (d) => { const at = atOf(d); return WD3D[at.getDay()] + ' ' + at.getDate() + ' ' + MON3D[at.getMonth()] + (at.getFullYear() !== 2026 ? ' ' + at.getFullYear() : '') + (d.time ? ' · ' + d.time : ''); };
+const curDday = allDdays.find((d) => d.id === ddSel) || builtIn;
+const ddLeft = Math.max(0, Math.floor((atOf(curDday).getTime() - mockNow) / 1000));
+const countdown = pad2(Math.floor(ddLeft / 86400)) + 'D ' + pad2(Math.floor((ddLeft % 86400) / 3600)) + 'H ' + pad2(Math.floor((ddLeft % 3600) / 60)) + 'M';
+const ddayLabel = curDday.fixed ? (sesI.live ? 'MECHANICS SESSION · LIVE NOW' : 'TO YOUR MECHANICS SESSION · ' + this.sessionLabel(sesI).toUpperCase()) : ddLeft > 0 ? 'TO ' + curDday.name.toUpperCase() + ' · ' + whenOf(curDday) : curDday.name.toUpperCase() + ' WAS ' + whenOf(curDday);
+const daysTo = (d) => Math.max(0, Math.floor((atOf(d).getTime() - mockNow) / 86400000));
+const inDays = (n) => (n === 0 ? 'TODAY' : 'IN ' + n + (n === 1 ? ' DAY' : ' DAYS'));
+const ddays = allDdays.map((d) => {
+const on = d.id === ddSel;
+return {
+name: d.name,
+when: whenOf(d) + ' · ' + inDays(daysTo(d)) + (d.fixed ? ' · EVERY RACE' : ''),
+checked: on ? 'true' : 'false',
+style: on ? 'background: rgba(225,6,0,0.08); box-shadow: inset 0 0 0 1px #E10600;' : 'background: rgba(var(--g-dk, 17,17,17), 0.04);',
+dot: on ? 'background: radial-gradient(circle, #E10600 0 4px, #FFFFFF 5px);' : 'background: var(--g-white, #FFFFFF);',
+pick: () => this.saveDdays((this.state || {}).ddays ?? customDdays, d.id),
+removable: !d.fixed,
+removeLabel: 'Remove ' + d.name,
+remove: () => {
+const c = this.state || {};
+const list = (c.ddays ?? customDdays).filter((x) => x.id !== d.id);
+this.saveDdays(list, c.ddSel === d.id ? 'mech' : (c.ddSel || 'mech'));
+}
+};
+});
+const addDday = () => {
+const c = this.state || {};
+const name = String(c.ddName || '').trim();
+const date = c.ddDate || '';
+if (!name) { this.setState({ ddError: 'Give it a name, like “JLPT exam”.' }); return; }
+if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) { this.setState({ ddError: 'Pick a date.' }); return; }
+const item = { id: 'dd-' + Date.now(), name: name, date: date, time: c.ddTime || '' };
+if (atOf(item).getTime() <= mockNow) { this.setState({ ddError: 'That date has already passed.' }); return; }
+this.setState({ ddName: '', ddDate: '', ddTime: '', ddError: '' });
+this.saveDdays((c.ddays ?? customDdays).concat([item]), item.id);
+};
+const ddVals = {
+countdown: countdown,
+ddayLabel: ddayLabel,
+ddayAria: 'Time left until ' + (curDday.fixed ? 'your Mechanics session' : curDday.name),
+ddayOpen: !!s.ddayOpen,
+ddayExpanded: s.ddayOpen ? 'true' : 'false',
+toggleDday: () => this.setState({ ddayOpen: !(this.state || {}).ddayOpen, ddError: '' }),
+ddays: ddays,
+ddName: s.ddName || '',
+ddDate: s.ddDate || '',
+ddTime: s.ddTime || '',
+setDdName: (e) => this.setState({ ddName: e.target.value, ddError: '' }),
+setDdDate: (e) => this.setState({ ddDate: e.target.value, ddError: '' }),
+setDdTime: (e) => this.setState({ ddTime: e.target.value }),
+addDday: addDday,
+ddHasError: !!s.ddError,
+ddError: s.ddError || ''
+};
+
+
+if (!this._calRef) {
+this._calRef = (el) => {
+if (!el) return;
+this._calEl = el;
+if (!this._didScroll) { el.scrollTop = 280; this._didScroll = true; }
+};
+}
+if (!this._hoursRef) {
+this._hoursRef = (el) => {
+if (!el || el.getAttribute('data-ready') === '1') return;
+el.setAttribute('data-ready', '1');
+el.scrollTop = 96;
+};
+}
+
+const focus = s.calFocus ?? 10;
+const focusYear = s.calYear ?? 2026;
+const startW = s.calStartW ?? 0;
+const weeks = s.calWeeks ?? 18;
+const calDays = [];
+for (let i = 0; i < weeks * 7; i++) {
+const d = new Date(2026, 8, 27 + startW * 7 + i);
+const y = d.getFullYear();
+const m = d.getMonth();
+const dd = d.getDate();
+const dow = d.getDay();
+const key = y + '-' + pad(m + 1) + '-' + pad(dd);
+const inFocus = m === focus && y === focusYear;
+const isToday = key === TODAY;
+const isSel = key === selected;
+const isPast = key < TODAY;
+const inRace = key >= '2026-11-22' && key <= '2026-11-28';
+let work = false;
+let done = false;
+if (data[key]) {
+work = data[key].some((l) => l.rec > 0);
+done = data[key].every((l) => l.done);
+} else if (isPast && dow !== 0) {
+work = dd % 5 !== 0;
+done = work && dd % 3 === 0;
+}
+let numStyle = '';
+if (isToday) numStyle = 'background: #E10600; color: #FFFFFF; font-weight: 700;';
+else if (isSel) numStyle = 'box-shadow: inset 0 0 0 2px var(--g-line, #111111); font-weight: 700;';
+let cellStyle = '';
+if (inRace) cellStyle = 'background: rgba(225,6,0,0.1);' + (dow === 0 ? ' border-radius: 4px 0 0 4px;' : dow === 6 ? ' border-radius: 0 4px 4px 0;' : '');
+else if (isSel) cellStyle = 'background: rgba(var(--g-dk, 17,17,17), 0.08); border-radius: 4px;';
+if (!inFocus) cellStyle += ' opacity: 0.4;';
+calDays.push({
+num: dd,
+monthTag: dd === 1 ? MON3[m] : '',
+numStyle: numStyle,
+cellStyle: cellStyle,
+work: work,
+done: done,
+mech: key === this.sessionInfo().day || (dow === 6 && (key < '2026-11-22' || key > '2026-11-28')),
+label: WD[dow] + ', ' + MONTHS[m] + ' ' + dd + ', ' + y + (isToday ? ', today' : ''),
+pick: () => this.setState({ selected: key, expanded: null })
+});
+}
+
+const selDate = new Date(Number(selected.slice(0, 4)), Number(selected.slice(5, 7)) - 1, Number(selected.slice(8, 10)));
+const selDow = selDate.getDay();
+const when = selected < TODAY ? 'past' : selected === TODAY ? 'today' : 'future';
+const dayName = WD[selDow];
+const raw = data[selected] || [];
+let doneCount = 0;
+let countable = 0;
+let recTotal = 0;
+let estTotal = 0;
+const hourBlocks = [];
+const DELTA_ON = 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);';
+const DELTA_OVER = 'background: #E10600; color: #FFFFFF;';
+const DELTA_UNDER = 'background: rgba(var(--g-glass, 255,255,255), 0.8); box-shadow: inset 0 0 0 1px var(--g-line, #111111); color: var(--g-ink, #111111);';
+const nowMinute = 13 * 60 + 12 + Math.floor((secs + 8) / 60);
+const RACE_DAYS = ['2026-11-25', '2026-11-26', '2026-11-27', '2026-11-28'];
+const moveDayKeys = (b) => RACE_DAYS.filter((k) => k >= selected && (k !== TODAY || nowMinute < 22 * 60));
+const toggleRunActive = () => {
+const c = this.state || {};
+const r = c.remaining ?? 2868;
+const id = c.active ?? 'd25b';
+const am = c.autoEnd || {};
+if ((am[id] ?? true) && r <= 0) { const m = Object.assign({}, am); m[id] = false; this.setState({ autoEnd: m, running: true }); return; }
+this.setState({ running: !(c.running ?? true) });
+};
+const laps = raw.map((b) => {
+const isActive = b.id === active && when === 'today';
+const elapsed = isActive ? Math.max(0, Math.floor((startRem - remaining) / 60)) : 0;
+const rec = b.rec + (extra[b.id] || 0) + elapsed;
+const pct = b.est ? Math.min(100, Math.round((rec / b.est) * 100)) : 0;
+const livePct = isActive ? Math.min(100, Math.max(0, Math.round((1 - remaining / (b.est * 60)) * 1000) / 10)) : 0;
+let circleStyle = '';
+let stateLabel = 'NOT STARTED';
+let chipStyle = 'background: rgba(var(--g-dk, 17,17,17), 0.08); color: var(--g-ink3, #3F3F3F);';
+let blockStyle = 'background: rgba(var(--g-glass, 255,255,255), 0.9); box-shadow: inset 0 0 0 2px var(--g-line, #111111); color: var(--g-ink, #111111);';
+let subStyle = 'color: var(--g-ink3, #3F3F3F);';
+if (b.done) {
+circleStyle = 'background: var(--g-solid, #111111);';
+stateLabel = 'COMPLETE';
+chipStyle = 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);';
+blockStyle = 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);';
+subStyle = 'color: rgba(255,255,255,0.78);';
+} else if (b.moved) {
+stateLabel = b.moved.toUpperCase();
+chipStyle = 'box-shadow: inset 0 0 0 2px #C20500; color: var(--g-red, #C20500);';
+blockStyle = 'background: rgba(255,255,255,0.45); border: 2px dashed #C20500; color: var(--g-ink3, #3F3F3F);';
+subStyle = 'color: var(--g-red, #C20500);';
+} else if (isActive) {
+circleStyle = 'background: conic-gradient(#E10600 0 ' + pct + '%, transparent 0);';
+stateLabel = autoEnded ? 'AUTO-ENDED' : running ? (remaining < 0 ? 'OVERTIME' : 'ON TRACK') : 'PAUSED';
+chipStyle = running ? 'background: #E10600; color: #FFFFFF;' : 'box-shadow: inset 0 0 0 2px #E10600; color: var(--g-red, #C20500);';
+blockStyle = 'background: linear-gradient(90deg, rgba(225,6,0,0.42) 0 ' + livePct + '%, rgba(255,255,255,0.9) ' + livePct + '% 100%); box-shadow: inset 0 0 0 2px #E10600; color: var(--g-ink, #111111);';
+} else if (rec >= b.est && rec > 0) {
+circleStyle = 'background: radial-gradient(circle, #111111 0 5px, transparent 6px);';
+stateLabel = 'TIME MET';
+chipStyle = 'box-shadow: inset 0 0 0 2px var(--g-line, #111111); color: var(--g-ink, #111111);';
+} else if (rec > 0) {
+circleStyle = 'background: conic-gradient(var(--g-solid, #111111) 0 ' + pct + '%, transparent 0);';
+stateLabel = 'IN PROGRESS';
+chipStyle = 'box-shadow: inset 0 0 0 2px var(--g-line, #111111); color: var(--g-ink, #111111);';
+}
+if (b.done) doneCount += 1;
+if (!b.moved) { countable += 1; recTotal += rec; estTotal += b.est; }
+const open = expanded === b.id;
+const over = Math.max(0, -remaining);
+const timerText = remaining >= 0 ? pad(Math.floor(remaining / 60)) + ':' + pad(remaining % 60) : '+' + pad(Math.floor(over / 60)) + ':' + pad(over % 60);
+const shownEst = isActive && over > 0 ? b.est + Math.ceil(over / 60) : b.est;
+const autoBox = autoOn ? 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);' : 'background: var(--g-white, #FFFFFF); color: transparent;';
+const range = hm(b.start) + '–' + hm(b.start + b.est);
+const extraTag = '';
+const sub = range + ' · ' + b.goal + extraTag;
+const sessSorted = (b.sess || []).slice().sort((x, y) => (x.day + x.start < y.day + y.start ? -1 : 1));
+const showDelta = !isActive && !b.moved && (b.done || when === 'past' || rec > b.est);
+const dlt = rec - b.est;
+let deltaText = '';
+let deltaStyle = '';
+if (showDelta) {
+if (dlt === 0) { deltaText = 'ON PLAN'; deltaStyle = DELTA_ON; }
+else if (dlt > 0) { deltaText = '+' + fmt(dlt).toUpperCase() + ' OVER'; deltaStyle = DELTA_OVER; }
+else { deltaText = '\u2212' + fmt(-dlt).toUpperCase() + ' UNDER'; deltaStyle = DELTA_UNDER; }
+}
+const sessionItems = sessSorted.map((g) => {
+const m = Math.max(0, toMinH(g.end) - toMinH(g.start));
+return {
+text: dayShort(g.day) + ' \u00b7 ' + g.start + '\u2013' + g.end + ' \u00b7 ' + fmt(m) + ' \u00b7 ' + (g.how === 'timed' ? 'timed' : 'logged by hand'),
+editable: when === 'today',
+editLabel: 'Edit ' + g.start + ' to ' + g.end + ' for ' + b.title,
+edit: () => this.setState({ logFor: b.id, logEditId: g.id, logTitleText: b.title, logStart: g.start, logEnd: g.end, logDone: !!b.done, logError: '' })
+};
+});
+if (isActive && elapsed > 0) sessionItems.push({ text: dayShort(TODAY) + ' \u00b7 13:00\u2013now \u00b7 ' + fmt(elapsed) + ' \u00b7 timing now', editable: false, editLabel: '', edit: null });
+if (!sessionItems.length) sessionItems.push({ text: 'No time recorded yet.', editable: false, editLabel: '', edit: null });
+const logTimeFn = () => this.setState({ logFor: b.id, logEditId: null, logTitleText: b.title, logStart: hm(b.start), logEnd: hm(b.start + b.est), logDone: !!b.done, logError: '' });
+const moveLaterFn = () => {
+const opts = moveDayKeys(b);
+this.setState({ moveFor: b.id, moveFromLabel: dayShort(selected) + ' ' + hm(b.start), moveOpts: opts, moveTitleText: b.title, moveDay: opts[0], moveTime: hm(opts[0] === TODAY ? Math.max(b.start + 60, Math.ceil((nowMinute + 15) / 15) * 15) : b.start), moveError: '', moveWasActive: isActive, moveDone: rec });
+};
+const canMoveHb = when === 'today' && !b.done && !b.moved;
+hourBlocks.push({
+canAct: canMoveHb,
+canLog: canMoveHb && !isActive,
+logTime: logTimeFn,
+moveLater: moveLaterFn,
+logLabel: 'Log time for ' + b.title,
+moveLabel: 'Move ' + b.title + ' to later',
+hasDelta: !!deltaText,
+deltaText: deltaText,
+deltaStyle: deltaStyle,
+top: Math.round(((b.start - 420) / 60) * 56),
+height: Math.max(40, Math.round((shownEst / 60) * 56) - 4),
+style: blockStyle,
+subStyle: subStyle,
+sub: sub,
+title: b.title,
+isActive: isActive,
+timerText: timerText,
+autoChecked: autoOn ? 'true' : 'false',
+autoBox: autoBox,
+toggleAuto: toggleAuto
+});
+const liStyle = isActive
+? 'margin: 0 -26px; padding: 0 26px; border-bottom: 0; background: linear-gradient(90deg, rgba(225,6,0,0.24) 0 ' + livePct + '%, rgba(225,6,0,0.07) ' + livePct + '% 100%);'
+: '';
+return {
+isLap: true,
+isEvent: false,
+startMin: b.start,
+sub: sub,
+title: b.title,
+desc: b.desc,
+circleStyle: circleStyle,
+stateLabel: stateLabel,
+chipStyle: chipStyle,
+isActive: isActive,
+notActive: !isActive,
+liStyle: liStyle,
+timeLabel: fmt(rec) + ' / ' + fmt(b.est),
+open: open,
+expandedAttr: open ? 'true' : 'false',
+showStart: open && when === 'today' && !isActive && !b.done && !b.moved,
+hasDelta: !!deltaText,
+deltaText: deltaText,
+deltaStyle: deltaStyle,
+logTime: logTimeFn,
+moveLater: moveLaterFn,
+showPast: open && when === 'past',
+showFuture: open && when === 'future',
+futureNote: 'Comes up on ' + dayName + '. You can move it to another day in this race.',
+timerText: timerText,
+leftOf: remaining > 0 ? 'LEFT OF ' + b.est + ':00' : autoEnded ? 'AUTO-ENDED AT ' + b.est + ':00' : 'OVER ' + b.est + ':00 · STILL RECORDING',
+runLabel: autoEnded ? 'KEEP GOING' : running ? 'PAUSE' : 'RESUME',
+autoChecked: autoOn ? 'true' : 'false',
+autoBox: autoBox,
+toggleAuto: toggleAuto,
+meta: 'GOAL ' + b.goal + ' · PLANNED ' + fmt(b.est) + ' · LAP TIME ' + fmt(rec) + (b.movedIn ? ' · ' + b.movedIn.toUpperCase() : ''),
+sessions: sessionItems,
+toggle: () => this.setState({ expanded: open ? null : b.id }),
+toggleRun: toggleRunActive,
+start: () => {
+const c = this.state || {};
+const prev = c.active ?? 'd25b';
+const prevElapsed = Math.max(0, Math.floor(((c.startRemaining ?? 3600) - (c.remaining ?? 2868)) / 60));
+const ex = Object.assign({}, c.extra || {});
+ex[prev] = (ex[prev] || 0) + prevElapsed;
+const base = b.rec + (ex[b.id] || 0);
+const rem = Math.max(60, (b.est - base) * 60);
+this.setState({ extra: ex, active: b.id, remaining: rem, startRemaining: rem, running: true, expanded: null });
+}
+};
+});
+
+const EXT = {
+'2026-11-25': [
+{ id: 'x1', title: 'Team sync', start: 660, dur: 45, src: 'GOOGLE CALENDAR' },
+{ id: 'x2', title: 'Dentist', start: 1050, dur: 45, src: 'APPLE CALENDAR' }
+],
+'2026-11-26': [
+{ id: 'x3', title: 'Study group', start: 900, dur: 60, src: 'GOOGLE CALENDAR' }
+]
+};
+const addedMap = s.added || {};
+const dismissedMap = s.dismissed || {};
+const extForDay = (EXT[selected] || []).filter((x) => addedMap[x.id] || !dismissedMap[x.id]);
+const calName = (src) => (src === 'GOOGLE CALENDAR' ? 'Google Calendar' : 'Apple Calendar');
+const eventRows = extForDay.filter((x) => addedMap[x.id]).map((x) => ({
+isLap: false, isEvent: true, startMin: x.start, liStyle: '', sessions: [],
+sub: hm(x.start) + '–' + hm(x.start + x.dur) + ' · FROM ' + x.src,
+title: x.title
+}));
+const listRows = laps.concat(eventRows).sort((a, b) => a.startMin - b.startMin);
+const extBlocks = extForDay.map((x) => {
+const isAdded = !!addedMap[x.id];
+return {
+dismissLabel: 'Dismiss ' + x.title,
+dismiss: () => {
+const m = Object.assign({}, (this.state || {}).dismissed || {});
+m[x.id] = true;
+this.act({ dismissed: m }, 'Dismissed “' + x.title + '”');
+this._undoAuditId = this.addAudit('Dismissed ' + x.title + ' \u00b7 ' + calName(x.src) + ' event', 'event-dismiss', { id: x.id });
+},
+top: Math.round(((x.start - 420) / 60) * 56),
+height: Math.max(40, Math.round((x.dur / 60) * 56) - 4),
+title: x.title,
+sub: hm(x.start) + '–' + hm(x.start + x.dur) + ' · ' + (isAdded ? 'ADDED FROM ' : '') + x.src,
+style: isAdded ? 'background: rgba(var(--g-glass, 255,255,255), 0.9); box-shadow: inset 0 0 0 2px var(--g-line, #111111);' : 'background: rgba(255,255,255,0.3); border: 2px dashed var(--g-line, #111111);',
+canAdd: !isAdded && when !== 'past',
+addLabel: 'Add ' + x.title + ' to this day',
+add: () => {
+const c = this.state || {};
+const m = Object.assign({}, c.added || {});
+m[x.id] = true;
+this.act({ added: m }, 'Added “' + x.title + '” from ' + calName(x.src));
+this._undoAuditId = this.addAudit('Added ' + x.title + ' \u00b7 from ' + calName(x.src), 'event-add', { id: x.id });
+}
+};
+});
+
+const hourMarks = [];
+for (let h = 7; h <= 22; h++) hourMarks.push({ top: (h - 7) * 56, label: pad(h) + ':00' });
+const nowMin = Math.floor(now / 60);
+const nowTop = Math.round(((nowMin - 420) / 60) * 56);
+
+let emptyTitle = '';
+let emptyBody = '';
+if (!laps.length) {
+if (selDow === 6) {
+if (selected === '2026-11-28') {
+emptyTitle = 'Mechanics session · 19:00';
+emptyBody = 'Review this race and plan the next one, which starts Sunday. You can still time laps earlier in the day.';
+} else if (selected < TODAY) {
+emptyTitle = 'Mechanics session';
+emptyBody = 'That race was reviewed and the next one planned.';
+} else {
+emptyTitle = 'Mechanics session';
+emptyBody = 'Review that race and plan the one after.';
+}
+} else if (selected < TODAY) {
+emptyTitle = 'Earlier race';
+emptyBody = 'Past races stay viewable here, read-only.';
+} else {
+emptyTitle = 'Not planned yet';
+emptyBody = 'Your Mechanics session builds the next race.';
+}
+}
+
+const todayList = data[TODAY];
+const doneToday = todayList.filter((l) => l.done).length;
+const activeLap = todayList.find((l) => l.id === active) || todayList[1];
+const elapsedNow = Math.max(0, Math.floor((startRem - remaining) / 60));
+let raceDone = 0;
+let raceTotal = 0;
+Object.keys(data).forEach((k) => data[k].forEach((l) => { if (!l.moved) { raceTotal += 1; if (l.done) raceDone += 1; } }));
+const msgs = [
+doneToday + ' of ' + todayList.length + ' laps done today. “' + activeLap.title + '” is ' + (running ? 'on track.' : 'paused.'),
+running ? elapsedNow + ' minutes into “' + activeLap.title + '”. Nice and steady, Lucy.' : 'Timer’s paused. The car will wait for you.',
+raceDone + ' of ' + raceTotal + ' laps done this race. Mechanics session ' + this.sessionLabel(this.sessionInfo()) + '.',
+'Radio check. Loud and clear, Lucy.'
+];
+const radioCount = s.radioCount || 0;
+const hasLaps = laps.length > 0;
+const onBtn = 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);';
+const offBtn = 'background: transparent; color: var(--g-ink, #111111);';
+
+const calW = s.calW ?? 540;
+let dayDeltaText = '';
+let dayDeltaStyle = '';
+const dayReal = raw.filter((l) => !l.moved);
+const dayAllDone = dayReal.length > 0 && dayReal.every((l) => l.done);
+if (hasLaps && (when === 'past' || dayAllDone || recTotal > estTotal)) {
+const dd2 = recTotal - estTotal;
+if (dd2 === 0) { dayDeltaText = 'ON PLAN'; dayDeltaStyle = 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);'; }
+else if (dd2 > 0) { dayDeltaText = '+' + fmt(dd2).toUpperCase() + ' OVER'; dayDeltaStyle = 'background: #E10600; color: #FFFFFF;'; }
+else { dayDeltaText = '−' + fmt(-dd2).toUpperCase() + ' UNDER'; dayDeltaStyle = 'background: rgba(var(--g-glass, 255,255,255), 0.8); box-shadow: inset 0 0 0 1px var(--g-line, #111111); color: var(--g-ink, #111111);'; }
+}
+const GOALC = { JAPANESE: '#E10600', PYTHON: '#1C64F2', READING: '#7A3CE0', PORTFOLIO: '#00A86B' };
+const GTARGET = { JAPANESE: 240, PYTHON: 300, READING: 180, PORTFOLIO: 120 };
+const GNAMES = ['JAPANESE', 'PYTHON', 'READING', 'PORTFOLIO'];
+const niceG = (g) => g.charAt(0) + g.slice(1).toLowerCase();
+const plannedBy = {};
+const dayPlan = {};
+Object.keys(data).forEach((k) => data[k].forEach((l) => {
+if (l.moved) return;
+plannedBy[l.goal] = (plannedBy[l.goal] || 0) + l.est;
+dayPlan[k] = dayPlan[k] || {};
+dayPlan[k][l.goal] = (dayPlan[k][l.goal] || 0) + l.est;
+}));
+const STINT_DAYS = ['2026-11-22', '2026-11-23', '2026-11-24', '2026-11-25', '2026-11-26', '2026-11-27', '2026-11-28'];
+const DW3 = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const dayTot = (k) => GNAMES.reduce((acc, g) => acc + ((dayPlan[k] || {})[g] || 0), 0);
+const maxDay = Math.max.apply(null, [60].concat(STINT_DAYS.map(dayTot)));
+const plan = {
+dates: 'SUN 22 – SAT 28 NOV',
+setAt: 'SET IN THE MECHANICS SESSION · SAT 21 NOV, 20:40',
+focus: 'Get the date parsing working before Thursday’s study group.',
+stintTotal: fmt(STINT_DAYS.reduce((acc, k) => acc + dayTot(k), 0)),
+stints: STINT_DAYS.map((k) => {
+const p = k.split('-').map(Number);
+const dt = new Date(p[0], p[1] - 1, p[2]);
+const dp = dayPlan[k] || {};
+const tot = dayTot(k);
+return {
+label: DW3[dt.getDay()] + ' ' + dt.getDate(),
+total: tot ? fmt(tot) : '—',
+colStyle: k === TODAY ? 'background: rgba(225,6,0,0.07); box-shadow: inset 0 0 0 1px rgba(225,6,0,0.4);' : '',
+labelStyle: k === TODAY ? 'color: var(--g-red, #C20500);' : 'color: var(--g-ink, #111111);',
+segs: GNAMES.filter((g) => dp[g]).map((g) => ({ h: Math.max(4, Math.round((dp[g] / maxDay) * 150)), color: GOALC[g], tip: niceG(g) + ' · ' + fmt(dp[g]) }))
+};
+}),
+targets: GNAMES.map((g) => {
+const pl = plannedBy[g] || 0;
+const t = GTARGET[g];
+return { name: niceG(g), color: GOALC[g], label: fmt(pl) + ' / ' + fmt(t), pct: Math.min(100, Math.round((pl / t) * 100)), note: pl > t ? '+' + fmt(pl - t).toUpperCase() + ' OVER TARGET' : pl < t ? fmt(t - pl).toUpperCase() + ' UNDER TARGET' : 'ON TARGET' };
+}),
+subs: [
+{ goal: 'PYTHON', title: 'Parse every date format', when: 'BY SUN 6 DEC', color: GOALC.PYTHON },
+{ goal: 'JAPANESE', title: 'Know 650 N3 kanji', when: 'BY 30 MAY 27', color: GOALC.JAPANESE },
+{ goal: 'PORTFOLIO', title: 'About page', when: 'BY SUN 29 NOV', color: GOALC.PORTFOLIO },
+{ goal: 'READING', title: 'Autumn: 4 books', when: 'BY SUN 13 DEC', color: GOALC.READING }
+],
+notes: [
+{ text: 'Evening reading kept slipping in Race 03, so it moves to before dinner.' },
+{ text: 'Python ran over twice. Plan 1h blocks with a 15-minute buffer.' }
+]
+};
+const sesH = this.sessionInfo();
+const hStep = sesH.step || 1;
+const didOf = (l) => l.rec + (extra[l.id] || 0) + (l.id === active && !sesH.live ? elapsedNow : 0);
+const dbG = {};
+GNAMES.forEach((g) => { dbG[g] = { plan: 0, did: 0 }; });
+let dbLaps = 0;
+let dbDone = 0;
+STINT_DAYS.forEach((k) => (data[k] || []).forEach((l) => {
+const r = dbG[l.goal];
+if (!r) return;
+if (!l.moved) { r.plan += l.est; dbLaps += 1; if (l.done) dbDone += 1; }
+r.did += didOf(l);
+}));
+const dbPlan = GNAMES.reduce((a, g) => a + dbG[g].plan, 0);
+const dbDid = GNAMES.reduce((a, g) => a + dbG[g].did, 0);
+const dbTarget = GNAMES.reduce((a, g) => a + GTARGET[g], 0);
+const dbNotes = (sesH.notes || {}).goals || {};
+const dbWhy = (sesH.notes || {}).why || '';
+const saveNotes = (p) => { const c = this.sessionInfo(); this.saveSession(Object.assign({}, c, { notes: Object.assign({}, c.notes || {}, p) })); };
+const deltaOf = (d) => (d === 0 ? ['ON PLAN', 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);'] : d > 0 ? ['+' + fmt(d).toUpperCase() + ' OVER', 'background: #E10600; color: #FFFFFF;'] : ['−' + fmt(-d).toUpperCase() + ' UNDER', 'background: rgba(var(--g-glass, 255,255,255), 0.8); box-shadow: inset 0 0 0 1px var(--g-line, #111111); color: var(--g-ink, #111111);']);
+const SUBOPTS = { JAPANESE: ['Know 650 N3 kanji', 'Pass a full N3 practice test'], PYTHON: ['Parse every date format', 'Tests passing'], READING: ['Autumn: 4 books', 'Winter: 4 books'], PORTFOLIO: ['Three project write-ups', 'About page'] };
+const brSubs = s.brSubs || {};
+const brDay = s.brDay || '2026-11-29';
+const brTime = s.brTime ?? '09:00';
+const pplan = sesH.plan || null;
+const briefNotes = [dbWhy.trim()].concat(GNAMES.map((g) => (String(dbNotes[g] || '').trim() ? niceG(g) + ': ' + String(dbNotes[g]).trim() : ''))).filter(Boolean);
+const finishRace = (label) => {
+this._undo = null;
+this.endSessionMock();
+const id = Date.now();
+this.setState({ toast: { id: id, text: 'Race 05 starts ' + label + '. Mock: back to Race 04.' }, brError: '' });
+setTimeout(() => { const n = this.state || {}; if (n.toast && n.toast.id === id) this.setState({ toast: null }); }, 6000);
+};
+const sv = {
+on: !!sesH.live,
+isDebrief: !!sesH.live,
+elseKicker: hStep === 2 ? 'STEP 2 OF 4 · UNFINISHED LAPS' : 'STEP 3 OF 4 · PLAN RACE 05',
+toStep1: () => this.setStep(1),
+toStep2: () => this.saveSession(Object.assign({}, this.sessionInfo(), { rwView: 'unf' })),
+toStep3: () => this.setStep(3),
+dates: 'SUN 22 – SAT 28 NOV',
+stats: [
+{ label: 'LAPS DONE', value: dbDone + ' / ' + dbLaps, sub: Math.round((dbDone / Math.max(1, dbLaps)) * 100) + '% OF THE PLAN', subStyle: 'color: var(--g-ink3, #3F3F3F);' },
+{ label: 'HOURS', value: fmt(dbDid), sub: 'OF ' + fmt(dbPlan).toUpperCase() + ' PLANNED', subStyle: 'color: var(--g-ink3, #3F3F3F);' },
+{ label: 'VS TARGETS', value: fmt(dbTarget), sub: dbDid >= dbTarget ? 'TARGETS MET' : fmt(dbTarget - dbDid).toUpperCase() + ' SHORT', subStyle: dbDid >= dbTarget ? 'color: var(--g-ink3, #3F3F3F);' : 'color: var(--g-red, #C20500);' }
+],
+goals: GNAMES.map((g) => {
+const r = dbG[g];
+const max = Math.max(r.plan, r.did, GTARGET[g], 1);
+const dl = deltaOf(r.did - r.plan);
+return {
+name: niceG(g),
+color: GOALC[g],
+numbers: fmt(r.did) + ' / ' + fmt(r.plan) + ' / ' + fmt(GTARGET[g]),
+didPct: Math.round((r.did / max) * 100),
+planPct: Math.round((r.plan / max) * 100),
+targetPct: Math.round((GTARGET[g] / max) * 100),
+deltaText: dl[0],
+deltaStyle: dl[1],
+note: dbNotes[g] || '',
+setNote: (e) => { const c = this.sessionInfo(); saveNotes({ goals: Object.assign({}, (c.notes || {}).goals || {}, { [g]: e.target.value }) }); },
+notePh: 'Note on ' + niceG(g) + ' (optional)',
+noteLabel: 'Note on ' + niceG(g) + ', optional'
+};
+}),
+radio: this.auditList().filter((e) => !e.undone && e.comment && e.day >= '2026-11-22' && e.day <= '2026-11-28').map((e) => ({ when: dayShort(e.day).toUpperCase() + ' ' + e.time, main: String(e.text).split(' · ')[0], comment: e.comment })),
+noRadio: !this.auditList().some((e) => !e.undone && e.comment && e.day >= '2026-11-22' && e.day <= '2026-11-28'),
+why: dbWhy,
+setWhy: (e) => saveNotes({ why: e.target.value }),
+focus: s.brFocus ?? 'Get the cleaner tests passing before the study group.',
+setFocus: (e) => this.setState({ brFocus: e.target.value }),
+briefGoals: GNAMES.map((g) => {
+const pick = brSubs[g] || SUBOPTS[g][0];
+return {
+name: niceG(g),
+color: GOALC[g],
+hours: (pplan && pplan[g] !== undefined ? fmt(pplan[g]).toUpperCase() + ' PLANNED' : 'NOT PLANNED YET') + ' · TARGET ' + fmt(GTARGET[g]).toUpperCase(),
+groupLabel: niceG(g) + ' subgoal focus',
+options: SUBOPTS[g].map((o) => ({ label: o, pressed: pick === o ? 'true' : 'false', style: pick === o ? 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);' : 'background: rgba(var(--g-dk, 17,17,17), 0.08); color: var(--g-ink, #111111);', pick: () => { const n = Object.assign({}, (this.state || {}).brSubs || {}); n[g] = o; this.setState({ brSubs: n }); } }))
+};
+}),
+notes: briefNotes.map((t) => ({ text: t })),
+noNotes: briefNotes.length === 0,
+startDays: [['2026-11-29', 'SUN 29'], ['2026-11-30', 'MON 30']].map(([k, l]) => ({ label: l, pressed: brDay === k ? 'true' : 'false', style: brDay === k ? 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);' : 'background: rgba(var(--g-dk, 17,17,17), 0.08); color: var(--g-ink, #111111);', pick: () => this.setState({ brDay: k, brError: '' }) })),
+startTime: brTime,
+setStartTime: (e) => this.setState({ brTime: e.target.value, brError: '' }),
+hasError: !!s.brError,
+error: s.brError || '',
+startLabel: 'START RACE 05 · ' + (brDay === '2026-11-29' ? 'SUN 29' : 'MON 30') + ' ' + (brTime || '--:--'),
+startAt: () => {
+const c = this.state || {};
+const t = c.brTime ?? '09:00';
+if (!/^\d{2}:\d{2}$/.test(t)) { this.setState({ brError: 'Pick a start time, or press START NOW.' }); return; }
+finishRace(((c.brDay || '2026-11-29') === '2026-11-29' ? 'Sun 29' : 'Mon 30') + ' at ' + t);
+},
+startNow: () => finishRace('now')
+};
+const obLap = (data[TODAY] || []).find((l) => l.id === active && !l.moved) || null;
+const obOver = Math.max(0, -remaining);
+const obNext = (data[TODAY] || []).filter((l) => !l.done && !l.moved && (!obLap || (l.id !== obLap.id && l.start >= obLap.start))).sort((a, b) => a.start - b.start)[0] || null;
+const ob = {
+has: !!obLap,
+none: !obLap,
+lapNo: 'RACE 04 · LAP ' + Math.min(raceTotal, raceDone + 1) + ' OF ' + raceTotal,
+goal: obLap ? obLap.goal : '',
+goalColor: obLap ? GOALC[obLap.goal] : '#FFFFFF',
+title: obLap ? obLap.title : '',
+timer: remaining >= 0 ? pad(Math.floor(remaining / 60)) + ':' + pad(remaining % 60) : '+' + pad(Math.floor(obOver / 60)) + ':' + pad(obOver % 60),
+timerStyle: remaining < 0 ? 'color: #FF4D45;' : 'color: #FFFFFF;',
+leftOf: obLap ? (remaining > 0 ? 'LEFT OF ' + obLap.est + ':00' : autoEnded ? 'AUTO-ENDED AT ' + obLap.est + ':00' : 'OVER ' + obLap.est + ':00 · STILL RECORDING') : '',
+pct: obLap ? Math.min(100, Math.max(0, Math.round(((obLap.rec + (extra[obLap.id] || 0) + elapsedNow) / obLap.est) * 100))) : 0,
+runLabel: autoEnded ? 'KEEP GOING' : running ? 'PAUSE' : 'RESUME',
+toggleRun: toggleRunActive,
+autoChecked: autoOn ? 'true' : 'false',
+autoBox: autoOn ? 'background: var(--g-white, #FFFFFF); color: var(--g-ink, #111111);' : 'background: transparent; color: transparent;',
+toggleAuto: toggleAuto,
+next: obNext ? 'UP NEXT · ' + hm(obNext.start) + ' · ' + obNext.title : 'NOTHING ELSE PLANNED TODAY',
+hasNext: !!obNext,
+startNext: () => { const it = laps.find((x) => obNext && x.title === obNext.title); this.setState({ obConfirm: false }); if (it && it.start) it.start(); },
+askNext: () => this.setState({ obConfirm: true }),
+cancelNext: () => this.setState({ obConfirm: false }),
+showClock: !obLap && !(s.obConfirm && obNext),
+confirming: !obLap && !!(s.obConfirm && obNext),
+nGoal: obNext ? obNext.goal : '',
+nGoalColor: obNext ? GOALC[obNext.goal] : '#FFFFFF',
+nTitle: obNext ? obNext.title : '',
+nWhen: obNext ? 'PLANNED ' + hm(obNext.start) + '\u2013' + hm(obNext.start + obNext.est) + ' \u00b7 ' + fmt(obNext.est).toUpperCase() : '',
+nDesc: obNext ? (obNext.desc || 'No description for this lap.') : '',
+radio: msgs[0]
+};
+return Object.assign({
+sv: sv,
+clock: clock,
+countdown: countdown,
+ddayLabel: ddayLabel,
+ddayAria: ddVals.ddayAria,
+ddayOpen: ddVals.ddayOpen,
+ddayExpanded: ddVals.ddayExpanded,
+toggleDday: ddVals.toggleDday,
+ddays: ddays,
+ddName: ddVals.ddName,
+ddDate: ddVals.ddDate,
+ddTime: ddVals.ddTime,
+setDdName: ddVals.setDdName,
+setDdDate: ddVals.setDdDate,
+setDdTime: ddVals.setDdTime,
+addDday: addDday,
+ddHasError: ddVals.ddHasError,
+ddError: ddVals.ddError,
+raceProgress: raceDone + ' OF ' + raceTotal + ' LAPS DONE',
+calRef: this._calRef,
+hoursRef: this._hoursRef,
+calMonth: MONTHS[focus].toUpperCase() + ' ' + focusYear,
+calDays: calDays,
+onCalScroll: (e) => {
+const el = e && e.currentTarget;
+if (!el) return;
+this._calEl = el;
+const c = this.state || {};
+const sw = c.calStartW ?? 0;
+const wk = c.calWeeks ?? 18;
+const patch = {};
+const w = Math.max(0, Math.floor((el.scrollTop + 140) / 56));
+const mid = new Date(2026, 8, 27 + (sw + w) * 7 + 3);
+if ((c.calFocus ?? 10) !== mid.getMonth() || (c.calYear ?? 2026) !== mid.getFullYear()) {
+patch.calFocus = mid.getMonth();
+patch.calYear = mid.getFullYear();
+}
+if (!this._extending && el.scrollTop < 224) {
+this._extending = true;
+this._pendingShift = 12 * 56;
+patch.calStartW = sw - 12;
+patch.calWeeks = wk + 12;
+} else if (!this._extending && el.scrollTop + el.clientHeight > el.scrollHeight - 224) {
+this._extending = true;
+patch.calWeeks = wk + 12;
+}
+if (Object.keys(patch).length) this.setState(patch);
+},
+laps: laps,
+listRows: listRows,
+logOpen: !!s.logFor,
+logTitle: (s.logEditId ? 'Edit time for “' : 'Log time for “') + (s.logTitleText || '') + '”',
+logKicker: s.logEditId ? 'EDIT LOGGED TIME' : 'LOG TIME BY HAND',
+logBody: s.logEditId ? 'Change when this happened, or whether the lap is complete. The change goes in this race’s log.' : 'For time you spent without the timer running. It’s saved as logged by hand.',
+logEditing: !!s.logEditId,
+logDoneAria: s.logDone ? 'true' : 'false',
+logDoneBox: s.logDone ? 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);' : 'background: var(--g-white, #FFFFFF); color: transparent;',
+toggleLogDone: () => this.setState({ logDone: !(this.state || {}).logDone }),
+logStart: s.logStart || '',
+logEnd: s.logEnd || '',
+setLogStart: (e) => this.setState({ logStart: e.target.value, logError: '' }),
+setLogEnd: (e) => this.setState({ logEnd: e.target.value, logError: '' }),
+logHasError: !!s.logError,
+logError: s.logError || '',
+closeLog: () => this.setState({ logFor: null, logEditId: null }),
+saveLog: () => {
+const c = this.state || {};
+const st = toMinH(c.logStart);
+const en = toMinH(c.logEnd);
+if (!(en > st)) { this.setState({ logError: 'The finish time has to be after the start.' }); return; }
+let lap = null;
+Object.keys(data).forEach((k) => data[k].forEach((l) => { if (l.id === c.logFor) lap = l; }));
+if (!lap) return;
+if (lap.day === TODAY && en > nowMinute) { this.setState({ logError: 'That time hasn’t happened yet.' }); return; }
+const before = (c.sess || {})[lap.id] || null;
+const beforeDone = (c.doneMap || {})[lap.id];
+let next;
+let text;
+if (c.logEditId) {
+const old = lap.sess.find((x) => x.id === c.logEditId);
+next = lap.sess.map((x) => (x.id === c.logEditId ? Object.assign({}, x, { start: c.logStart, end: c.logEnd }) : x));
+text = old && (old.start !== c.logStart || old.end !== c.logEnd) ? 'Edited logged time for ' + lap.title + ' · ' + old.start + '–' + old.end + ' → ' + c.logStart + '–' + c.logEnd : '';
+} else {
+next = lap.sess.concat([{ id: lap.id + '-h' + Date.now(), day: lap.day, start: c.logStart, end: c.logEnd, how: 'by hand' }]);
+text = 'Logged ' + lap.title + ' · ' + fmt(en - st) + ' by hand';
+}
+const sm = Object.assign({}, c.sess || {});
+sm[lap.id] = next;
+const dm = Object.assign({}, c.doneMap || {});
+const nowDone = !!c.logDone;
+dm[lap.id] = nowDone;
+if (nowDone !== !!lap.done) text = text ? text + ' · ' + (nowDone ? 'marked complete' : 'marked not complete') : (nowDone ? 'Marked ' + lap.title + ' complete' : 'Marked ' + lap.title + ' not complete');
+if (!text) { this.setState({ logFor: null, logEditId: null }); return; }
+this.act({ sess: sm, doneMap: dm, logFor: null, logEditId: null }, text);
+this._undoAuditId = this.addAudit(text, 'sess', { lapId: lap.id, before: before, beforeDone: beforeDone === undefined ? null : beforeDone });
+},
+removeLog: () => {
+const c = this.state || {};
+let lap = null;
+Object.keys(data).forEach((k) => data[k].forEach((l) => { if (l.id === c.logFor) lap = l; }));
+if (!lap || !c.logEditId) return;
+const old = lap.sess.find((x) => x.id === c.logEditId);
+const before = (c.sess || {})[lap.id] || null;
+const beforeDone = (c.doneMap || {})[lap.id];
+const sm = Object.assign({}, c.sess || {});
+sm[lap.id] = lap.sess.filter((x) => x.id !== c.logEditId);
+const text = 'Removed logged time from ' + lap.title + (old ? ' · ' + old.start + '–' + old.end : '');
+this.act({ sess: sm, logFor: null, logEditId: null }, text);
+this._undoAuditId = this.addAudit(text, 'sess', { lapId: lap.id, before: before, beforeDone: beforeDone === undefined ? null : beforeDone });
+},
+
+moveOpen: !!s.moveFor,
+moveTitle: 'Move \u201c' + (s.moveTitleText || '') + '\u201d',
+moveDays: (s.moveOpts || []).map((k) => ({
+label: dayShort(k).toUpperCase() + (k === TODAY ? ' \u00b7 LATER TODAY' : ''),
+pressed: s.moveDay === k ? 'true' : 'false',
+style: s.moveDay === k ? 'background: var(--g-solid, #111111); color: var(--g-on, #FFFFFF);' : 'background: rgba(var(--g-dk, 17,17,17), 0.08); color: var(--g-ink, #111111);',
+pick: () => this.setState({ moveDay: k, moveError: '' })
+})),
+moveTime: s.moveTime || '',
+setMoveTime: (e) => this.setState({ moveTime: e.target.value, moveError: '' }),
+moveNote: 'It stays on ' + dayShort(selected) + ' marked as moved, and the move is logged for your debrief.' + (s.moveWasActive ? ' The timer stops; the time you\u2019ve done stays recorded.' : ''),
+moveHasError: !!s.moveError,
+moveError: s.moveError || '',
+closeMove: () => this.setState({ moveFor: null }),
+saveMove: () => {
+const c = this.state || {};
+const day = c.moveDay;
+const t = Math.round(toMinH(c.moveTime) / 15) * 15;
+if (!day) { this.setState({ moveError: 'Pick a day.' }); return; }
+if (t < 420 || t > 1365) { this.setState({ moveError: 'Pick a time between 07:00 and 22:45.' }); return; }
+if (day === TODAY && t <= nowMinute) { this.setState({ moveError: 'Pick a time after now.' }); return; }
+const mv = Object.assign({}, c.moves || {});
+mv[c.moveFor] = { day: day, start: t, doneMin: c.moveDone || 0 };
+const patch = { moves: mv, moveFor: null, expanded: null };
+if (c.moveWasActive) {
+const id = c.active ?? 'd25b';
+const prevElapsed = Math.max(0, Math.floor(((c.startRemaining ?? 3600) - (c.remaining ?? 2868)) / 60));
+const ex = Object.assign({}, c.extra || {});
+ex[id] = (ex[id] || 0) + prevElapsed;
+Object.assign(patch, { extra: ex, active: 'none', running: false, remaining: 0, startRemaining: 0 });
+}
+const beforeMove = (c.moves || {})[c.moveFor] || null;
+this.act(patch, 'Moved \u201c' + c.moveTitleText + '\u201d to ' + dayShort(day) + ' ' + hm(t));
+this._undoAuditId = this.addAudit('Moved ' + c.moveTitleText + ' \u00b7 ' + (c.moveFromLabel || '') + ' \u2192 ' + dayShort(day) + ' ' + hm(t), 'move', { lapId: c.moveFor, before: beforeMove });
+},
+hasToast: !!s.toast,
+toastText: s.toast ? s.toast.text : '',
+undo: () => this.undoLast(),
+hourBlocks: hourBlocks,
+extBlocks: extBlocks,
+hourMarks: hourMarks,
+nowTop: nowTop,
+showNowLine: when === 'today',
+noLaps: !hasLaps,
+showList: hasLaps && view === 'list',
+showHours: hasLaps && view === 'hours',
+listPressed: view === 'list' ? 'true' : 'false',
+hoursPressed: view === 'hours' ? 'true' : 'false',
+listBtnStyle: view === 'list' ? onBtn : offBtn,
+hoursBtnStyle: view === 'hours' ? onBtn : offBtn,
+showListView: () => this.setState({ view: 'list' }),
+showHoursView: () => this.setState({ view: 'hours' }),
+emptyTitle: emptyTitle,
+emptyBody: emptyBody,
+dayTitle: when === 'today' ? 'TODAY’S LAPS' : dayName.toUpperCase() + ', ' + MONTHS[selDate.getMonth()].toUpperCase() + ' ' + selDate.getDate(),
+daySummary: hasLaps ? doneCount + ' OF ' + countable + ' DONE · ' + fmt(recTotal) + ' / ' + fmt(estTotal) : '',
+dayHasDelta: !!dayDeltaText,
+dayDeltaText: dayDeltaText,
+dayDeltaStyle: dayDeltaStyle,
+calW: calW,
+splitX: 32 + calW,
+lapsLeft: 44 + calW,
+lapsW: 1408 - (44 + calW),
+onSplitDown: (e) => {
+if (!e || (e.button !== undefined && e.button !== 0)) return;
+const el = e.currentTarget;
+const r = el.getBoundingClientRect();
+this._split = { x0: e.clientX, w0: calW, scale: el.offsetWidth ? (r.width / el.offsetWidth) || 1 : 1 };
+if (e.preventDefault) e.preventDefault();
+},
+onSplitKey: (e) => {
+if (e.key === 'ArrowLeft') this.setState({ calW: Math.max(380, calW - 20) });
+else if (e.key === 'ArrowRight') this.setState({ calW: Math.min(820, calW + 20) });
+},
+openPlan: () => this.setState({ planOpen: true, radioLogOpen: false }),
+planOpen: !!s.planOpen,
+closePlan: () => this.setState({ planOpen: false }),
+plan: plan,
+openOnboard: () => this.setState({ onboardOpen: true, radioLogOpen: false, planOpen: false }),
+onboardOpen: !!s.onboardOpen,
+closeOnboard: () => this.setState({ onboardOpen: false, obConfirm: false }),
+ob: ob,
+
+goToday: () => {
+const el = this._calEl || document.getElementById('iterace-cal-scroll');
+const target = (5 - ((this.state || {}).calStartW ?? 0)) * 56;
+if (el) {
+try { el.scrollTo({ top: target, behavior: 'smooth' }); } catch (err) { el.scrollTop = target; }
+}
+this.setState({ selected: TODAY, expanded: null, calFocus: 10, calYear: 2026 });
+}
+}, this.auditVals(msgs));
+}
+}
+</script>
+</body>
+</html>
