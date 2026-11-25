@@ -388,3 +388,10 @@ a:hover {
     transition-duration: 1ms !important;
   }
 }
+a.btn {
+  text-decoration: none;
+  color: inherit;
+}
+a.btn-red {
+  color: #fff;
+}

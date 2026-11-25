@@ -205,3 +205,14 @@ export function lapsLeftAfter(store: Store, race: Race, at: Date): number {
     (l) => l.status === 'planned' && l.planned_start && new Date(l.planned_start).getTime() >= ms,
   ).length;
 }
+
+/** A one-race target override (brief §5 Goals: "The session can also set a different target for one race"). */
+export function setRaceTarget(store: Store, raceId: string, logRaceId: string, goalId: string, goalName: string, min: number) {
+  const t = store.tx();
+  const existing = t.db.race_targets.find((x) => x.race_id === raceId && x.goal_id === goalId);
+  const before = existing?.target_min;
+  if (existing) t.update('race_targets', existing.id, { target_min: min });
+  else t.insert('race_targets', { race_id: raceId, goal_id: goalId, target_min: min });
+  t.log({ race_id: logRaceId, page: 'week', kind: 'race-target', main: `Set ${goalName}’s target for the next race`, detail: `${before != null ? `${before}m → ` : ''}${min}m` });
+  return t.commit();
+}
