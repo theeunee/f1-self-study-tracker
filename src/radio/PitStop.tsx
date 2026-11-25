@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { store, useDB } from '../data/store';
 import { lapsLeftAfter, moveSessionEarlier, startSessionNow } from '../domain/race';
 import { liveRace, raceDays } from '../domain/selectors';
-import { atTime, dayKey, fmtDayShort, fmtDayTime, now } from '../lib/time';
+import { atTime, dayKey, fmtDayShort, fmtDayTime, fmtWhen, now } from '../lib/time';
 import { Dialog } from '../ui/Dialog';
 import { radioOpen, showToast } from '../ui/signals';
 
@@ -26,7 +26,7 @@ export function PitStop({ onClose }: { onClose: () => void }) {
       <span className="label label-red">EMERGENCY PIT STOP</span>
       <h2>Bring the Mechanics session forward?</h2>
       <p>
-        It’s set for {fmtDayTime(sessionAt)}. The race ends when the session starts, so laps planned after the new time go to the debrief as unfinished.
+        It’s set for {fmtWhen(sessionAt)}. The race ends when the session starts, so laps planned after the new time go to the debrief as unfinished.
         {to && n ? ` That’s ${n} lap${n === 1 ? '' : 's'}.` : ''}
       </p>
       <div className="field">
