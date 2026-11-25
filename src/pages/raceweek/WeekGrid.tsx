@@ -208,10 +208,14 @@ export function WeekGrid(p: Props) {
   };
   // Keep the view still when days are added on the left.
   const firstDay = useRef(dayKey(p.days[0]));
+  const lastScrollKey = useRef(p.scrollKey);
   useLayoutEffect(() => {
     const el = scroller.current;
     const k = dayKey(p.days[0]);
-    if (el && p.dayWidth && k !== firstDay.current) {
+    // A view switch (THIS RACE ⇄ SCROLL DAYS, or 📅) re-centres on today instead.
+    const switched = lastScrollKey.current !== p.scrollKey;
+    lastScrollKey.current = p.scrollKey;
+    if (el && p.dayWidth && !switched && k !== firstDay.current) {
       const added = Math.round((fromDayKey(firstDay.current).getTime() - fromDayKey(k).getTime()) / (24 * 3600_000));
       if (added > 0) el.scrollLeft += added * p.dayWidth;
     }
