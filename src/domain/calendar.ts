@@ -4,7 +4,7 @@
 import type { Store } from '../data/store';
 import type { DB, Race } from '../data/types';
 import { createSignal } from '../lib/hooks';
-import { dayKey, fmtDayTime } from '../lib/time';
+import { dayKey, fmtWhen } from '../lib/time';
 import type { CalGhost } from '../pages/raceweek/WeekGrid';
 
 export interface CalEvent {
@@ -58,7 +58,7 @@ export function addCalendarEvent(store: Store, race: Race, g: CalGhost, page: 'h
     carried_from_lap_id: null,
   });
   t.insert('calendar_choices', { source_id: k.source_id, event_uid: k.uid, date: k.date, choice: 'added', lap_id: lap.id });
-  t.log({ race_id: race.id, page, kind: 'event-add', main: `Added ${g.title}`, detail: `from ${g.source} · ${fmtDayTime(g.start)}` });
+  t.log({ race_id: race.id, page, kind: 'event-add', main: `Added ${g.title}`, detail: `from ${g.source} · ${fmtWhen(g.start)}` });
   return t.commit();
 }
 
@@ -66,6 +66,6 @@ export function dismissCalendarEvent(store: Store, race: Race, g: CalGhost, page
   const k = parseKey(g);
   const t = store.tx();
   t.insert('calendar_choices', { source_id: k.source_id, event_uid: k.uid, date: k.date, choice: 'dismissed', lap_id: null });
-  t.log({ race_id: race.id, page, kind: 'event-dismiss', main: `Dismissed ${g.title}`, detail: `${g.source} event · ${fmtDayTime(g.start)}` });
+  t.log({ race_id: race.id, page, kind: 'event-dismiss', main: `Dismissed ${g.title}`, detail: `${g.source} event · ${fmtWhen(g.start)}` });
   return t.commit();
 }

@@ -2,7 +2,7 @@
 // + keeps that day's copy (it becomes a real lap), × skips it. Repeats are only created in the session.
 import type { Store } from '../data/store';
 import type { DB, Race, RepeatRule } from '../data/types';
-import { addMinutes, atTime, dayKey, fmtDayTime } from '../lib/time';
+import { addMinutes, atTime, dayKey, fmtWhen } from '../lib/time';
 import { raceDays, raceEnd } from './selectors';
 
 export interface Ghost {
@@ -54,14 +54,14 @@ export function keepGhost(store: Store, race: Race, g: Ghost, page: 'week' | 'ho
     carried_from_lap_id: null,
   });
   t.insert('repeat_choices', { rule_id: g.rule.id, date: g.date, choice: 'kept', lap_id: lap.id });
-  t.log({ race_id: race.id, page, kind: 'repeat-keep', main: `Kept ${g.title}`, detail: `repeat · ${fmtDayTime(g.start)}` });
+  t.log({ race_id: race.id, page, kind: 'repeat-keep', main: `Kept ${g.title}`, detail: `repeat · ${fmtWhen(g.start)}` });
   return t.commit();
 }
 
 export function skipGhost(store: Store, race: Race, g: Ghost, page: 'week' | 'home' = 'week') {
   const t = store.tx();
   t.insert('repeat_choices', { rule_id: g.rule.id, date: g.date, choice: 'skipped', lap_id: null });
-  t.log({ race_id: race.id, page, kind: 'repeat-skip', main: `Skipped ${g.title}`, detail: `repeat · ${fmtDayTime(g.start)}` });
+  t.log({ race_id: race.id, page, kind: 'repeat-skip', main: `Skipped ${g.title}`, detail: `repeat · ${fmtWhen(g.start)}` });
   return t.commit();
 }
 

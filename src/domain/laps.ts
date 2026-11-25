@@ -2,7 +2,7 @@
 // logged time, moves, hand records and calendar adds/dismissals are.
 import type { Store } from '../data/store';
 import type { Lap, LapTime, LogPage } from '../data/types';
-import { MIN, fmtDayTime, fmtDur, hhmm, now } from '../lib/time';
+import { MIN, fmtWhen, fmtDur, hhmm, now } from '../lib/time';
 import { stopRunning } from './race';
 import { recordedMs, runningTime } from './selectors';
 
@@ -137,7 +137,7 @@ export function moveToLater(store: Store, lap: Lap, to: Date): string | null {
     page: 'home',
     kind: 'move',
     main: `Moved ${lap.title}`,
-    detail: `${lap.planned_start ? fmtDayTime(lap.planned_start) : 'Laps to place'} → ${fmtDayTime(to)}`,
+    detail: `${lap.planned_start ? fmtWhen(lap.planned_start) : 'Laps to place'} → ${fmtWhen(to)}`,
   });
   return t.commit();
 }

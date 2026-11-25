@@ -228,3 +228,8 @@ export function uid(): string {
 export function snap(min: number, step = 15): number {
   return Math.round(min / step) * step;
 }
+
+/** 'Tue 24 19:00' — for race-log details and body text. */
+export function fmtWhen(d: Date | string): string {
+  return `${fmtDayTitle(d)} ${hhmm(d)}`;
+}

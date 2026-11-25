@@ -275,3 +275,9 @@ export function useDB(): DB {
 export function useSaveError(): string | null {
   return useSyncExternalStore(store.subscribe, () => store.saveError);
 }
+
+// Dev only: hot-reloading this module (or anything it imports) would leave an empty store behind
+// while the app still looks signed in. Reload the page instead.
+if (import.meta.hot) {
+  import.meta.hot.accept(() => window.location.reload());
+}

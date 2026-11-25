@@ -2,7 +2,7 @@
 // Mechanics session starts, and the session can only ever move earlier.
 import type { Store, Tx } from '../data/store';
 import type { Race } from '../data/types';
-import { MIN, addDays, atTime, fmtDayTime, now, startOfWeek } from '../lib/time';
+import { MIN, addDays, atTime, fmtWhen, now, startOfWeek } from '../lib/time';
 import {
   driverRace,
   lapsOf,
@@ -71,7 +71,7 @@ export function startSessionNow(store: Store, via: 'pit' | 'week') {
     page: via === 'pit' ? 'home' : 'week',
     kind: 'session-start',
     main: via === 'pit' ? 'Called an emergency pit stop' : 'Started the Mechanics session',
-    detail: `session started now instead of ${fmtDayTime(race.session_at)}`,
+    detail: `session started now instead of ${fmtWhen(race.session_at)}`,
     payload: null,
     undone: false,
     note: '',
@@ -93,7 +93,7 @@ export function moveSessionEarlier(store: Store, to: Date, page: 'home' | 'week'
     page,
     kind: 'session-move',
     main: 'Moved the Mechanics session earlier',
-    detail: `${fmtDayTime(from)} → ${fmtDayTime(to)}`,
+    detail: `${fmtWhen(from)} → ${fmtWhen(to)}`,
   });
   const logId = t.commit();
   return { ok: true as const, logId };
@@ -195,7 +195,7 @@ export function raceStatusText(store: Store): string {
   const r = driverRace(db);
   if (!r) return '';
   if (r.status === 'live') return 'ON TRACK';
-  if (r.status === 'planned') return `STARTS ${fmtDayTime(r.starts_at)}`;
+  if (r.status === 'planned') return `STARTS ${fmtWhen(r.starts_at)}`;
   return 'FINISHED';
 }
 

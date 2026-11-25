@@ -5,7 +5,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { store } from '../../data/store';
 import type { Lap, Race } from '../../data/types';
-import { fmtDayTime, fmtDur, hhmm, addMinutes, uid, now } from '../../lib/time';
+import { fmtWhen, fmtDur, hhmm, addMinutes, uid, now } from '../../lib/time';
 
 export type LapInput = Pick<Lap, 'title' | 'goal_id' | 'planned_start' | 'planned_min' | 'description'> & { color?: string | null };
 export type LapPatch = Partial<Pick<Lap, 'title' | 'goal_id' | 'planned_start' | 'planned_min' | 'description' | 'color'>>;
@@ -30,7 +30,7 @@ export interface Change {
 }
 
 const where = (start: string | null, min: number) =>
-  start ? `${fmtDayTime(start)}–${hhmm(addMinutes(start, min))}` : 'Laps to place';
+  start ? `${fmtWhen(start)}–${hhmm(addMinutes(start, min))}` : 'Laps to place';
 
 /** Net change for one lap between the saved version and the draft. */
 export function describeChange(before: Lap | undefined, after: Lap | undefined): Change | null {
@@ -42,8 +42,8 @@ export function describeChange(before: Lap | undefined, after: Lap | undefined):
   const renamed = before.title !== after.title;
   const other = before.description !== after.description || before.color !== after.color || before.goal_id !== after.goal_id;
   if (moved) {
-    const from = before.planned_start ? fmtDayTime(before.planned_start) : 'Laps to place';
-    const to = after.planned_start ? fmtDayTime(after.planned_start) : 'Laps to place';
+    const from = before.planned_start ? fmtWhen(before.planned_start) : 'Laps to place';
+    const to = after.planned_start ? fmtWhen(after.planned_start) : 'Laps to place';
     return {
       id: after.id,
       kind: 'lap-move',
