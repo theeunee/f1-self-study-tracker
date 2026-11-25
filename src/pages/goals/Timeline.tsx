@@ -92,6 +92,20 @@ export function Timeline(p: Props) {
     if (todayTick) scrollToToday();
   }, [todayTick]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // When the detail panel opens or closes, keep the centre of the view on the same date.
+  useEffect(() => {
+    const el = scroller.current;
+    if (!el || typeof ResizeObserver === 'undefined') return;
+    let lastW = el.clientWidth;
+    const ro = new ResizeObserver(() => {
+      const w = el.clientWidth;
+      if (w !== lastW) el.scrollLeft += (lastW - w) / 2;
+      lastW = w;
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   const onScroll = () => {
     const el = scroller.current;
     if (!el) return;
