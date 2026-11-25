@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+.env
+.env.local
+.env.*.local
+# leftovers from the earlier Next.js attempt
+.next/
+next-env.d.ts
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+# local Supabase CLI state
+supabase/.temp/
+supabase/.branches/
+# review screenshots are committed under docs/build/, scratch ones are not
+scratch/

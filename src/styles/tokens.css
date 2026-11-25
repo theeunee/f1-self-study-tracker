@@ -1,0 +1,77 @@
+/* Theme tokens (brief §9). Two themes: the light Driver look on the red page, and the
+   Mechanics session's black carbon look. The session theme is set on <html data-theme="session">. */
+:root {
+  --font-display: 'Orbitron', 'Arial Black', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+
+  --red: #e10600;
+  --red-text: #c20500;
+  --red-hover: #8e0400;
+  --ink: #111111;
+  --ink-2: #2b2b2b;
+  --ink-3: #3f3f3f;
+  --mute: #6b6b6b;
+
+  --page: #e10600;
+  --glass-rgb: 255, 255, 255;
+  --glass: rgba(var(--glass-rgb), 0.74);
+  --glass-strong: rgba(var(--glass-rgb), 0.98);
+  --glass-line: rgba(255, 255, 255, 0.95);
+  --dk-rgb: 17, 17, 17;
+  --line: rgba(var(--dk-rgb), 0.12);
+  --line-strong: #111111;
+  --solid: #111111;
+  --on-solid: #ffffff;
+  --surface: #ffffff;
+  --input-bg: #ffffff;
+  --pop-bg: #ffffff;
+  --pop-border: transparent;
+  --pop-glow: 0 24px 60px rgba(17, 17, 17, 0.35);
+  --shadow: 0 20px 50px rgba(17, 17, 17, 0.22);
+  --blur: blur(26px) saturate(140%);
+  --tab-bg: rgba(255, 255, 255, 0.22);
+  --tab-active-bg: #ffffff;
+  --tab-active-ink: #c20500;
+  --header-ink: #ffffff;
+  --hatch: repeating-linear-gradient(135deg, rgba(17, 17, 17, 0.16) 0 2px, transparent 2px 12px);
+  --no-goal: #8f8f97;
+  --black-goal: #111111; /* a black goal shows light grey on the dark theme */
+
+  --r-panel: 4px;
+  --r-pill: 999px;
+  color-scheme: light;
+}
+
+[data-theme='session'] {
+  --red-text: #ff5b50;
+  --red-hover: #ff7a70;
+  --ink: #f2f2f4;
+  --ink-2: #e4e4e8;
+  --ink-3: #b9b9c0;
+  --mute: #8f8f97;
+  --page:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.025) 0 3px, transparent 3px 7px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.28) 0 3px, transparent 3px 7px),
+    linear-gradient(160deg, #1e1e22 0%, #0f0f11 100%);
+  --glass-rgb: 30, 30, 34;
+  --glass: rgba(30, 30, 34, 0.74);
+  --glass-strong: rgba(30, 30, 34, 0.98);
+  --glass-line: rgba(62, 62, 68, 0.95);
+  --dk-rgb: 255, 255, 255;
+  --line-strong: #e6e6ea;
+  --solid: #f2f2f4;
+  --on-solid: #111111;
+  --surface: #26262b;
+  --input-bg: #1b1b1f;
+  --pop-bg: rgb(46, 46, 53);
+  --pop-border: #e10600;
+  --pop-glow: 0 0 0 1px #e10600, 0 0 40px rgba(225, 6, 0, 0.45), 0 24px 60px rgba(0, 0, 0, 0.6);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --tab-bg: rgba(255, 255, 255, 0.1);
+  --tab-active-bg: #26262b;
+  --tab-active-ink: #ff5b50;
+  --hatch: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0 2px, transparent 2px 12px);
+  --black-goal: #d4d4da;
+  color-scheme: dark;
+}
