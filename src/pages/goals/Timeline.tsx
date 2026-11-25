@@ -92,19 +92,15 @@ export function Timeline(p: Props) {
     if (todayTick) scrollToToday();
   }, [todayTick]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // When the detail panel opens or closes, keep the centre of the view on the same date.
-  useEffect(() => {
-    const el = scroller.current;
-    if (!el || typeof ResizeObserver === 'undefined') return;
-    let lastW = el.clientWidth;
-    const ro = new ResizeObserver(() => {
-      const w = el.clientWidth;
-      if (w !== lastW) el.scrollLeft += (lastW - w) / 2;
-      lastW = w;
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
+  // When the detail panel opens or closes the view narrows from the right: re-anchor on today.
+  const firstPanel = useRef(true);
+  useLayoutEffect(() => {
+    if (firstPanel.current) {
+      firstPanel.current = false;
+      return;
+    }
+    scrollToToday();
+  }, [!!p.selected]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onScroll = () => {
     const el = scroller.current;
