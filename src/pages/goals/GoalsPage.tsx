@@ -53,7 +53,7 @@ export function GoalsPage() {
   );
   const sel = all.find((g) => g.id === selected) ?? null;
 
-  const counts = `${active.length} ACTIVE${achieved.length ? ` · ${achieved.length} ACHIEVED` : ''}`;
+  const counts = `${active.length} ACTIVE · ${achieved.length} ACHIEVED${archived.length ? ` · ${archived.length} ARCHIVED` : ''}`;
   const weekly = `${fmtDur(totalWeeklyTarget(db)).toUpperCase()} A WEEK ACROSS ACTIVE GOALS`;
 
   const openSubEdit = (s: Subgoal) => {
