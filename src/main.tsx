@@ -1,9 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { App } from './App';
+// Base styles first, so page styles (imported by each page) can override them.
 import './styles/tokens.css';
 import './styles/base.css';
 import './styles/shell.css';
+import { App } from './App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
