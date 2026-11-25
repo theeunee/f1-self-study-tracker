@@ -176,5 +176,7 @@ export function buildSeed(userId: string, displayName: string, nowDate: Date): D
   });
 
   add('countdowns', { name: 'JLPT N3', date: d(221), time: '09:00', selected: false });
+  // Local mode shows sample events for this source (there's no iCal proxy without Supabase).
+  add('calendar_sources', { provider: 'other', name: 'Sample calendar' });
   return db;
 }

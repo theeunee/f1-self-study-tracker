@@ -349,3 +349,24 @@
   align-items: center;
   gap: 10px;
 }
+
+.cal-sources {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cal-source {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 6px 6px 12px;
+  border-radius: var(--r-panel);
+  background: rgba(var(--dk-rgb), 0.06);
+}
+.cal-source .mono {
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.cal-source span:nth-child(2) {
+  flex: 1 1 auto;
+}

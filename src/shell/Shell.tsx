@@ -12,6 +12,8 @@ import { Background } from './Background';
 import { Radio } from '../radio/Radio';
 import { BriefOverlay } from '../session/Brief';
 import { ConfirmDialog } from '../ui/Dialog';
+import { CalendarsDialog } from '../ui/CalendarsDialog';
+import { useCalendarSync } from '../domain/calendarSync';
 
 /** Pages listen to this to jump back to today. */
 export const todaySignal = createSignal(0);
@@ -24,6 +26,7 @@ export function HeaderActions({ children }: { children: ReactNode }) {
 }
 
 function Engine() {
+  useCalendarSync();
   useEffect(() => {
     tick(store, nowMs());
     const id = setInterval(() => tick(store, nowMs()), 1000);
@@ -143,7 +146,7 @@ function Toast() {
 function AccountMenu() {
   const db = useDB();
   const [open, setOpen] = useState(false);
-  const [confirm, setConfirm] = useState<'delete' | 'sample' | null>(null);
+  const [confirm, setConfirm] = useState<'delete' | 'sample' | 'calendars' | null>(null);
   useEscape(open ? () => setOpen(false) : null);
   const name = profileOf(db)?.display_name ?? '';
   return (
@@ -160,6 +163,9 @@ function AccountMenu() {
         <div className="popover account-pop" role="dialog" aria-label="Account">
           <strong>{name}</strong>
           <span className="label">{isLocalMode ? 'Local mode · this browser only' : 'Signed in'}</span>
+          <button className="btn btn-sm btn-outline" onClick={() => (setConfirm('calendars'), setOpen(false))}>
+            CALENDARS
+          </button>
           {isLocalMode && (
             <button className="btn btn-sm btn-outline" onClick={() => setConfirm('sample')}>
               LOAD SAMPLE DATA
@@ -186,6 +192,7 @@ function AccountMenu() {
           onConfirm={() => deleteAccount()}
         />
       )}
+      {confirm === 'calendars' && <CalendarsDialog onClose={() => setConfirm(null)} />}
       {confirm === 'sample' && (
         <ConfirmDialog
           kicker="SAMPLE DATA"

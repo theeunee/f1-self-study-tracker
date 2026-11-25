@@ -6,6 +6,6 @@ export default defineConfig({
   server: { port: 5173, strictPort: true },
   test: {
     environment: 'jsdom',
-    include: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
+    include: ['src/**/*.test.ts', 'src/**/*.test.tsx', 'supabase/functions/**/*.test.ts'],
   },
 } as never);

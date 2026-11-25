@@ -250,7 +250,7 @@ export function RaceWeekPage() {
             onRecord={(lap) => setRecord(lap)}
             onKeep={(g) => {
               const id = g.kind === 'repeat' ? keepGhost(store, race, g) : addCalendarEvent(store, race, g, 'week');
-              showToast(`Kept ${g.title}`, id);
+              showToast(`${g.kind === 'repeat' ? 'Kept' : 'Added'} ${g.title}`, id);
             }}
             onSkip={(g) => {
               const id = g.kind === 'repeat' ? skipGhost(store, race, g) : dismissCalendarEvent(store, race, g, 'week');
