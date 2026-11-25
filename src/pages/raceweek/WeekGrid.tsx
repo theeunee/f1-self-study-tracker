@@ -53,7 +53,7 @@ interface Props {
 type Drag =
   | { kind: 'lap'; lap: Lap; mode: 'move' | 'top' | 'bottom'; x0: number; y0: number; origStart: Date; origMin: number; day: string; startMin: number; min: number; moved: boolean }
   | { kind: 'create'; day: string; a: number; b: number }
-  | { kind: 'session'; x0: number; y0: number; day: string; startMin: number; moved: boolean }
+  | { kind: 'session'; x0: number; y0: number; origMin: number; day: string; startMin: number; moved: boolean }
   | { kind: 'tray'; lap: Lap; day: string | null; startMin: number };
 
 export function WeekGrid(p: Props) {
@@ -152,8 +152,9 @@ export function WeekGrid(p: Props) {
           return { ...d, min: Math.min(m, H1 - origStartMin), moved };
         }
         if (d.kind === 'session') {
-          const { day, min } = locate(e);
-          return { ...d, day, startMin: snap(min, 15), moved: d.moved || Math.abs(e.clientY - d.y0) > 4 || Math.abs(e.clientX - d.x0) > 4 };
+          const { day } = locate(e);
+          const dm = snap(((e.clientY - d.y0) / HOUR) * 60, 15);
+          return { ...d, day, startMin: Math.max(H0, Math.min(H1 - 15, d.origMin + dm)), moved: d.moved || Math.abs(e.clientY - d.y0) > 4 || Math.abs(e.clientX - d.x0) > 4 };
         }
         return d;
       });
@@ -419,7 +420,7 @@ function SessionBlock(p: Props & { k: string; drag: Drag | null; setDrag: (d: Dr
       onPointerDown={(e) => {
         if (!p.sessionDraggable || e.button !== 0) return;
         e.stopPropagation();
-        p.setDrag({ kind: 'session', x0: e.clientX, y0: e.clientY, day: p.k, startMin, moved: false });
+        p.setDrag({ kind: 'session', x0: e.clientX, y0: e.clientY, origMin: startMin, day: p.k, startMin, moved: false });
       }}
     >
       <span className="wg-session-flag" aria-hidden="true" />
