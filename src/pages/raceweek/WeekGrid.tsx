@@ -449,7 +449,9 @@ function Block(
   const done = lap.status === 'done' || (rec >= lap.planned_min * MIN && !running);
   const moved = lap.status === 'moved';
   const ended = start.getTime() + lap.planned_min * MIN < p.nowMs;
-  const needsRecord = p.mode === 'driver' && lap.status === 'planned' && !rec && !running && ended;
+  // Only while that lap's race is live: fixing a record after the race is a future feature (brief §10).
+  const raceLive = db.races.find((r) => r.id === lap.race_id)?.status === 'live';
+  const needsRecord = p.mode === 'driver' && raceLive && lap.status === 'planned' && !rec && !running && ended;
   const draggable = p.canDrag(lap);
   const colour = lapColor(db, lap);
   const black = colour.toUpperCase() === '#111111';
