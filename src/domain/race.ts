@@ -109,9 +109,13 @@ export function startNextRace(store: Store, startAt: Date) {
   t.update('races', done.id, { status: 'done' });
   const nowD = now();
   const at = startAt.getTime() < nowD.getTime() ? nowD : startAt;
+  // Races stretch or shrink (brief §4): starting earlier keeps the planned week's session;
+  // only a start after that session pushes it to the next slot.
+  const planned = new Date(next.session_at);
+  const sessionAt = at.getTime() < planned.getTime() ? planned : sessionAfter(at, sessionSlot(t.db));
   t.update('races', next.id, {
     starts_at: at.toISOString(),
-    session_at: sessionAfter(at, sessionSlot(t.db)).toISOString(),
+    session_at: sessionAt.toISOString(),
     status: 'planned',
   });
   const brief = t.db.briefs.find((b) => b.race_id === next.id);

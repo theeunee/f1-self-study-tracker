@@ -170,9 +170,10 @@ export function goalDoneInRace(db: DB, raceId: string | undefined, goalId: strin
   return sum;
 }
 
+/** Planned = laps placed on the grid (Laps to place doesn't count until it's placed). */
 export function goalPlannedInRace(db: DB, raceId: string | undefined, goalId: string | null): number {
   let sum = 0;
-  for (const l of countedLaps(db, raceId)) if ((l.goal_id ?? null) === goalId) sum += l.planned_min;
+  for (const l of countedLaps(db, raceId)) if (l.planned_start && (l.goal_id ?? null) === goalId) sum += l.planned_min;
   return sum;
 }
 
