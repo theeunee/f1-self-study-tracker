@@ -8,7 +8,7 @@ import { MIN, addDays, atTime, dayKey, startOfWeek, uid } from '../lib/time';
 export function buildSeed(userId: string, displayName: string, nowDate: Date): DB {
   const db = emptyDB();
   const stamp = new Date(nowDate.getTime() - 60 * 24 * 60 * MIN).toISOString();
-  function add<T extends TableName>(table: T, data: Omit<Tables[T], 'id' | 'user_id' | 'created_at' | 'updated_at'> & { id?: string; created_at?: string }): Tables[T] {
+  function add<T extends TableName>(table: T, data: Omit<Tables[T], 'id' | 'user_id' | 'created_at' | 'updated_at'> & { id?: string; created_at?: string; updated_at?: string }): Tables[T] {
     const row = { id: uid(), user_id: userId, created_at: stamp, updated_at: stamp, ...data } as unknown as Tables[T];
     (db[table] as AnyRow[]).push(row as AnyRow);
     return row;
@@ -103,7 +103,7 @@ export function buildSeed(userId: string, displayName: string, nowDate: Date): D
       if (amount > 0) add('lap_times', { lap_id: lap.id, started_at: start.toISOString(), ended_at: new Date(start.getTime() + amount * MIN).toISOString(), how: 'timed' });
     }
   });
-  add('debriefs', { race_id: races[2].id, why: 'Evening reading kept slipping, so it moves to before dinner.', goal_notes: { [python.id]: 'Python ran over twice. Plan 1h blocks with a 15-minute buffer.' } });
+  add('debriefs', { race_id: races[2].id, why: 'Evening reading kept slipping, so it moves to before dinner.', goal_notes: { [python.id]: 'Ran over twice. Plan 1h blocks with a 15-minute buffer.' } });
 
   // This race's laps, as in the design (Sun 0 … Sat 6).
   type L = [typeof python | null, string, number, string, number, string?];
@@ -166,6 +166,8 @@ export function buildSeed(userId: string, displayName: string, nowDate: Date): D
       [reading.id]: db.subgoals.find((s) => s.title === 'Autumn: 4 books')!.id,
     },
     start_at: raceStart.toISOString(),
+    created_at: atTime(addDays(week, -1), '20:40').toISOString(),
+    updated_at: atTime(addDays(week, -1), '20:40').toISOString(),
   });
 
   add('log_entries', {
